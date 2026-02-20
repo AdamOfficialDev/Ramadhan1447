@@ -380,7 +380,7 @@ window.addEventListener('resize',resizeC);
 setInterval(()=>{if(Math.random()<.3)meteors.push({x:Math.random()*W,y:-20,vx:2+Math.random()*3,vy:3+Math.random()*4,life:1,decay:.014+Math.random()*.01,len:70+Math.random()*60});},2000);
 
 // ═══ CONSTANTS ═══
-const RSTART=new Date('2026-02-18T00:00:00'),REND=new Date('2026-03-20T00:00:00');
+const RSTART=new Date('2026-02-19T00:00:00'),REND=new Date('2026-03-21T00:00:00');
 const DAYS_ID=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
 const MONTHS_ID=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
 const HIJRI_M=["Muharram","Safar","Rabi'ul Awal","Rabi'ul Akhir","Jumadil Awal","Jumadil Akhir","Rajab","Sya'ban","Ramadhan","Syawal","Dzulqa'dah","Dzulhijjah"];
@@ -408,8 +408,15 @@ function tick(){
   document.getElementById('cm').textContent=pad(now.getMinutes());
   document.getElementById('cs').textContent=pad(now.getSeconds());
   document.getElementById('clock-date').textContent=`${DAYS_ID[now.getDay()]}, ${now.getDate()} ${MONTHS_ID[now.getMonth()]} ${now.getFullYear()}`;
-  const h=toHijri(now);
-  document.getElementById('clock-hijri').textContent=`${h.day} ${h.monthName} ${h.year} H`;
+  // Gunakan hari Ramadhan jika sedang dalam bulan Ramadhan
+  const inRH=now>=RSTART&&now<REND;
+  if(inRH){
+    const ramDay=Math.floor((now-RSTART)/86400000)+1;
+    document.getElementById('clock-hijri').textContent=`${ramDay} Ramadhan 1447 H`;
+  } else {
+    const h=toHijri(now);
+    document.getElementById('clock-hijri').textContent=`${h.day} ${h.monthName} ${h.year} H`;
+  }
   const inR=now>=RSTART&&now<REND,before=now<RSTART;
   if(inR){
     const dn=Math.floor((now-RSTART)/86400000)+1;
@@ -499,12 +506,12 @@ function renderKalender(){
   document.getElementById('kal-grid').outerHTML='<div id="kal-grid">'+html+'</div>';
 
   const penting=[
-    {icon:'🌙',label:'1 Ramadhan 1447H',val:'18 Februari 2026'},
-    {icon:'✨',label:'Nuzulul Quran (17 Ramadhan)',val:'6 Maret 2026'},
-    {icon:'🌟',label:'Lailatul Qadar (21 Ramadhan)',val:'10 Maret 2026'},
-    {icon:'🌟',label:'Lailatul Qadar (23 Ramadhan)',val:'12 Maret 2026'},
-    {icon:'🌟',label:'Lailatul Qadar (27 Ramadhan)',val:'16 Maret 2026'},
-    {icon:'🎉',label:'1 Syawal — Idul Fitri (Perkiraan)',val:'20 Maret 2026'},
+    {icon:'🌙',label:'1 Ramadhan 1447H',val:'19 Februari 2026'},
+    {icon:'✨',label:'Nuzulul Quran (17 Ramadhan)',val:'7 Maret 2026'},
+    {icon:'🌟',label:'Lailatul Qadar (21 Ramadhan)',val:'11 Maret 2026'},
+    {icon:'🌟',label:'Lailatul Qadar (23 Ramadhan)',val:'13 Maret 2026'},
+    {icon:'🌟',label:'Lailatul Qadar (27 Ramadhan)',val:'17 Maret 2026'},
+    {icon:'🎉',label:'1 Syawal — Idul Fitri (Perkiraan)',val:'21 Maret 2026'},
   ];
   document.getElementById('penting-list').innerHTML=penting.map(p=>`
     <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:14px;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.1)">
