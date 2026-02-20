@@ -442,7 +442,7 @@ function tick(){
 }
 setInterval(tick,1000);tick();
 
-function timeToMin(s){const[h,m]=s.split(':').map(Number);return h*60+m;}
+function timeToMin(s){if(!s||s==='--:--'||s==='99:99')return 9999;const[h,m]=s.split(':').map(Number);return h*60+m;}
 function updateNext(now){
   const cur=now.getHours()*60+now.getMinutes();
   const mins=SCHED.map(s=>timeToMin(todayPrayer[s.key]||'99:99'));
@@ -466,7 +466,11 @@ function setLoc(n,s){document.getElementById('loc-name').textContent=n;document.
 
 async function fetchPrayer(lat,lon){
   const now=new Date();
-  try{const url=`https://api.aladhan.com/v1/timings/${now.getDate()}-${now.getMonth()+1}-${now.getFullYear()}?latitude=${lat}&longitude=${lon}&method=20&school=1`;const res=await fetch(url);const data=await res.json();if(data.code===200){const t=data.data.timings;todayPrayer={imsak:t.Imsak,subuh:t.Fajr,terbit:t.Sunrise,dhuha:t.Dhuha,dzuhur:t.Dhuhr,ashar:t.Asr,maghrib:t.Maghrib,isya:t.Isha};renderSched();tick();}}
+  try{const url=`https://api.aladhan.com/v1/timings/${now.getDate()}-${now.getMonth()+1}-${now.getFullYear()}?latitude=${lat}&longitude=${lon}&method=20&school=1`;const res=await fetch(url);const data=await res.json();if(data.code===200){const t=data.data.timings;// Hitung Dhuha manual = Terbit + 20 menit jika API tidak mengembalikan
+const sunriseParts = t.Sunrise.split(':').map(Number);
+const dhuhaMin = sunriseParts[0]*60 + sunriseParts[1] + 20;
+const dhuhaStr = pad(Math.floor(dhuhaMin/60))+':'+pad(dhuhaMin%60);
+todayPrayer={imsak:t.Imsak,subuh:t.Fajr,terbit:t.Sunrise,dhuha:(t.Dhuha&&t.Dhuha!=='--:--'?t.Dhuha:dhuhaStr),dzuhur:t.Dhuhr,ashar:t.Asr,maghrib:t.Maghrib,isya:t.Isha};renderSched();tick();}}
   catch(e){document.getElementById('sched-loading').innerHTML='<div style="color:#ff6b6b">⚠️ Gagal memuat jadwal.</div>';}
 }
 function renderSched(){
@@ -554,7 +558,7 @@ function toggleAmalan(i){
   card.classList.toggle('checked',amalanState[i]);
   chk.textContent=amalanState[i]?'✓':'';
   updateAmalanProg();
-  if(amalanState[i])showNotif('✅ Amalan dicatat!');
+  if(amalanState[i])showNotif('Amalan dicatat!');
 }
 function updateAmalanProg(){
   const done=amalanState.filter(Boolean).length,total=AMALAN.length;
