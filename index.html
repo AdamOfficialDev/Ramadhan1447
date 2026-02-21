@@ -290,11 +290,11 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);min
 
   <!-- Nav -->
   <div class="d-nav">
-    <button class="d-nav-btn active" onclick="dGoPage('home',this)">🏠 Beranda</button>
-    <button class="d-nav-btn" onclick="dGoPage('kalender',this)">📅 Kalender</button>
-    <button class="d-nav-btn" onclick="dGoPage('amalan',this)">✅ Amalan Harian</button>
-    <button class="d-nav-btn" onclick="dGoPage('doa',this)">🤲 Doa Ramadhan</button>
-    <button class="d-nav-btn" onclick="dGoPage('tasbih',this)">📿 Tasbih Digital</button>
+    <button class="d-nav-btn active" onclick="dGoPage('home',this)">Beranda</button>
+    <button class="d-nav-btn" onclick="dGoPage('kalender',this)">Kalender</button>
+    <button class="d-nav-btn" onclick="dGoPage('amalan',this)">Amalan Harian</button>
+    <button class="d-nav-btn" onclick="dGoPage('doa',this)">Doa Ramadhan</button>
+    <button class="d-nav-btn" onclick="dGoPage('tasbih',this)">Tasbih Digital</button>
   </div>
 
   <!-- HOME -->
@@ -414,11 +414,11 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);min
 ════════════════════════════════════════════ -->
 <div class="mobile-wrap">
   <div class="m-nav">
-    <button class="m-nav-btn active" onclick="mGoPage('home',this)">🏠 Beranda</button>
-    <button class="m-nav-btn" onclick="mGoPage('kalender',this)">📅 Kalender</button>
-    <button class="m-nav-btn" onclick="mGoPage('amalan',this)">✅ Amalan</button>
-    <button class="m-nav-btn" onclick="mGoPage('doa',this)">🤲 Doa</button>
-    <button class="m-nav-btn" onclick="mGoPage('tasbih',this)">📿 Tasbih</button>
+    <button class="m-nav-btn active" onclick="mGoPage('home',this)">Beranda</button>
+    <button class="m-nav-btn" onclick="mGoPage('kalender',this)">Kalender</button>
+    <button class="m-nav-btn" onclick="mGoPage('amalan',this)">Amalan</button>
+    <button class="m-nav-btn" onclick="mGoPage('doa',this)">Doa</button>
+    <button class="m-nav-btn" onclick="mGoPage('tasbih',this)">Tasbih</button>
   </div>
 
   <!-- M HOME -->
@@ -690,7 +690,7 @@ function renderAmalan(){
     g.innerHTML=AMALAN_DATA.map((a,i)=>`<div class="am-card${amalanState[i]?' checked':''}" id="${p}-am-${i}" onclick="toggleAmalan(${i})"><div class="am-icon">${a.icon}</div><div style="flex:1"><div class="am-name">${a.name}</div><div class="am-desc">${a.desc}</div></div><div class="am-check" id="${p}-amchk-${i}">${amalanState[i]?'✓':''}</div></div>`).join('');
   });updateAmalanProg();
 }
-function toggleAmalan(i){amalanState[i]=!amalanState[i];renderAmalan();if(amalanState[i])showNotif('✅ Amalan dicatat!');}
+function toggleAmalan(i){amalanState[i]=!amalanState[i];renderAmalan();if(amalanState[i])showNotif('Amalan dicatat!');}
 function updateAmalanProg(){
   const done=amalanState.filter(Boolean).length,total=AMALAN_DATA.length,pct=Math.round(done/total*100);
   ['d','m'].forEach(p=>{const f=document.getElementById(`${p}-am-fill`),pp=document.getElementById(`${p}-am-pct`),st=document.getElementById(`${p}-am-status`);if(f)f.style.width=pct+'%';if(pp)pp.textContent=pct+'%';const msgs=['Mulai checklist amalan harianmu 💪','Terus semangat! 🌟','Bagus sekali! ✨','Hampir selesai! 🔥','Luar biasa! Semua amalan selesai! 🎉'];const idx=pct===100?4:pct>75?3:pct>50?2:pct>20?1:0;if(st)st.textContent=msgs[idx]+` (${done}/${total})`;});
