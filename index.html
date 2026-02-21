@@ -3,522 +3,689 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ramadhan 1447 H</title>
+<title>Ramadhan 1447 H — Muhammad Adam Abdillah</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap');
 :root{
-  --gold:#d4af37;--gold2:#f0d060;--gold3:#fff8c0;
-  --green:#0d5c36;--green2:#1a8c54;--green3:#2ecc7a;
-  --bg:#050810;--card:#0f1828;--card2:#141f35;
-  --border:rgba(212,175,55,0.15);--text:#f0ede8;--text2:#8899bb;
+  --gold:#d4af37;--gold2:#f0d060;--gold3:#fff8c0;--gold4:rgba(212,175,55,0.12);
+  --green:#0a4a2c;--green2:#16784a;--green3:#2ecc7a;--green4:rgba(46,204,122,0.12);
+  --bg:#03060e;--bg2:#070c18;--bg3:#0c1422;
+  --card:rgba(12,20,38,0.85);--card2:rgba(18,28,52,0.9);
+  --border:rgba(212,175,55,0.15);--border2:rgba(212,175,55,0.08);
+  --text:#f0ede8;--text2:#7a8faa;--text3:#4a5f7a;
+  --shadow-gold:0 8px 32px rgba(212,175,55,0.15);
+  --shadow-green:0 8px 32px rgba(46,204,122,0.1);
+  --r:20px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
 #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
-::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:99px;}
 
-.glass{background:linear-gradient(135deg,rgba(20,31,53,0.92),rgba(9,13,26,0.96));border:1px solid var(--border);border-radius:20px;backdrop-filter:blur(20px);position:relative;overflow:hidden;}
-.glass::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.4),transparent);}
-.pad{padding:20px;}
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--gold),var(--green3));border-radius:99px;}
 
-/* ── DESKTOP LAYOUT ── */
-.desktop-wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:24px 28px 60px;display:none;}
-.mobile-wrap{position:relative;z-index:1;max-width:500px;margin:0 auto;padding:0 16px 80px;display:none;}
-
-@media(min-width:768px){.desktop-wrap{display:block;}}
-@media(max-width:767px){.mobile-wrap{display:block;}}
-
-/* ── DESKTOP HEADER ── */
-.d-header{
-  text-align:center;padding:40px 0 32px;position:relative;
+/* ── GLASS BASE ── */
+.glass{
+  background:linear-gradient(135deg,rgba(14,22,42,0.92),rgba(7,11,22,0.96));
+  border:1px solid var(--border);border-radius:var(--r);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  position:relative;overflow:hidden;
 }
-.d-header::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(212,175,55,0.06),transparent 70%);pointer-events:none;}
-.d-lantern-row{display:flex;justify-content:space-between;align-items:center;max-width:700px;margin:0 auto 20px;}
-.d-lantern{width:44px;animation:swL 3.5s ease-in-out infinite;}
-.d-lantern:last-child{animation-name:swR;}
-.d-lantern svg{width:100%;filter:drop-shadow(0 0 12px rgba(212,175,55,0.7));}
-@keyframes swL{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
-@keyframes swR{0%,100%{transform:rotate(7deg)}50%{transform:rotate(-7deg)}}
-.d-arabic{font-family:'Amiri',serif;font-size:5rem;font-weight:700;background:linear-gradient(180deg,var(--gold3),var(--gold2) 50%,#a07820);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 16px rgba(212,175,55,0.4));line-height:1.1;}
-.d-latin{font-family:'Cinzel',serif;font-size:2rem;font-weight:700;letter-spacing:14px;color:var(--gold2);text-shadow:0 0 24px rgba(212,175,55,0.5);}
-.d-tagline{font-size:0.75rem;color:var(--text2);letter-spacing:4px;text-transform:uppercase;margin-top:6px;}
-.d-badges{display:flex;justify-content:center;gap:10px;margin-top:14px;}
-.badge-pill{padding:5px 16px;border-radius:99px;font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;}
-.bp-gold{background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.35);color:var(--gold2);}
-.bp-green{background:rgba(26,140,84,0.15);border:1px solid rgba(46,204,122,0.3);color:var(--green3);}
+.glass::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,175,55,0.03),transparent 50%);pointer-events:none;}
+.glass::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.5),transparent);}
+.glass-green{border-color:rgba(46,204,122,0.2);}
+.glass-green::after{background:linear-gradient(90deg,transparent,rgba(46,204,122,0.4),transparent);}
 
-/* ── DESKTOP NAV ── */
-.d-nav{display:flex;gap:8px;margin-bottom:24px;background:rgba(9,13,26,0.8);border:1px solid rgba(212,175,55,0.1);border-radius:16px;padding:6px;backdrop-filter:blur(12px);}
-.d-nav-btn{flex:1;padding:10px;border-radius:12px;border:none;background:transparent;color:var(--text2);font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:'Poppins',sans-serif;letter-spacing:0.5px;}
-.d-nav-btn.active{background:linear-gradient(135deg,rgba(212,175,55,0.2),rgba(212,175,55,0.05));color:var(--gold2);box-shadow:inset 0 0 0 1px rgba(212,175,55,0.3);}
-.d-nav-btn:hover:not(.active){background:rgba(255,255,255,0.04);color:var(--text);}
+/* ── LAYOUT ── */
+.desktop{display:none;position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:32px 36px 80px;}
+.mobile{display:none;position:relative;z-index:1;max-width:500px;margin:0 auto;padding:0 14px 80px;}
+@media(min-width:768px){.desktop{display:block;}}
+@media(max-width:767px){.mobile{display:block;}}
 
-.d-page{display:none;}.d-page.active{display:block;}
+/* ══════════════════════════════════
+   DESKTOP
+══════════════════════════════════ */
 
-/* ── DESKTOP HOME GRID ── */
-.d-grid-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;}
-.d-grid-mid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
-.d-grid-bot{display:grid;grid-template-columns:1fr;gap:16px;}
-.d-col-span2{grid-column:span 2;}
+/* ── D HEADER ── */
+.d-hero{
+  text-align:center;padding:60px 0 44px;position:relative;
+  background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(212,175,55,0.09),transparent);
+}
+.d-hero::after{
+  content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,175,55,0.2),transparent);
+}
+.d-hero-deco{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden;}
+.d-hero-deco span{position:absolute;animation:floatDeco 6s ease-in-out infinite;}
+.d-hero-deco span:nth-child(1){left:4%;top:35%;font-size:1.4rem;opacity:.18;animation-delay:0s;}
+.d-hero-deco span:nth-child(2){left:10%;top:62%;font-size:0.9rem;opacity:.12;animation-delay:1s;}
+.d-hero-deco span:nth-child(3){right:4%;top:28%;font-size:1.4rem;opacity:.18;animation-delay:2s;}
+.d-hero-deco span:nth-child(4){right:10%;top:58%;font-size:0.9rem;opacity:.12;animation-delay:3s;}
+.d-hero-deco span:nth-child(5){left:22%;top:12%;font-size:1rem;opacity:.1;animation-delay:1.5s;}
+.d-hero-deco span:nth-child(6){right:22%;top:12%;font-size:1rem;opacity:.1;animation-delay:2.5s;}
+.d-hero-deco span:nth-child(7){left:38%;top:6%;font-size:0.7rem;opacity:.08;animation-delay:0.8s;}
+.d-hero-deco span:nth-child(8){right:38%;top:6%;font-size:0.7rem;opacity:.08;animation-delay:1.8s;}
+@keyframes floatDeco{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-14px) rotate(12deg);}}
 
-/* CLOCK DESKTOP */
-.d-clock{padding:28px;text-align:center;}
-.d-clock-lbl{font-size:0.6rem;letter-spacing:3px;color:var(--text2);text-transform:uppercase;margin-bottom:10px;}
-.d-clock-time{font-size:3.4rem;font-weight:700;letter-spacing:4px;line-height:1;background:linear-gradient(180deg,#fff8dc,var(--gold2) 50%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 16px rgba(212,175,55,0.35));}
+/* TOP ROPE LINE */
+.d-rope{
+  display:flex;align-items:flex-start;justify-content:center;
+  position:relative;margin-bottom:0;
+}
+.d-rope-line{
+  position:absolute;top:14px;left:15%;right:15%;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(212,175,55,0.3) 20%,rgba(212,175,55,0.5) 50%,rgba(212,175,55,0.3) 80%,transparent);
+  z-index:0;
+}
+.d-rope-line::before,.d-rope-line::after{
+  content:'';position:absolute;top:-2px;width:6px;height:6px;border-radius:50%;
+  background:var(--gold);opacity:0.5;
+}
+.d-rope-line::before{left:15%;}
+.d-rope-line::after{right:15%;}
+
+.d-lanterns-group{display:flex;justify-content:space-between;align-items:flex-start;width:100%;max-width:820px;margin:0 auto;position:relative;z-index:1;}
+.d-lanterns-left,.d-lanterns-right{display:flex;gap:28px;align-items:flex-start;}
+.lantern-svg{width:48px;filter:drop-shadow(0 0 14px rgba(212,175,55,0.8));animation:swingL 4s ease-in-out infinite;}
+.lantern-svg.r{animation-name:swingR;}
+.lantern-svg.sm{width:36px;filter:drop-shadow(0 0 10px rgba(212,175,55,0.6));animation-duration:4.5s;}
+.lantern-svg.sm.r{animation-name:swingR;animation-duration:3.8s;}
+@keyframes swingL{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(8deg) translateY(-4px)}}
+@keyframes swingR{0%,100%{transform:rotate(8deg) translateY(0)}50%{transform:rotate(-8deg) translateY(-4px)}}
+
+.d-hero-center{flex:1;text-align:center;padding:0 24px;margin-top:8px;}
+
+/* MOON + TITLE GROUP */
+.d-moon-wrap{position:relative;display:inline-block;margin-bottom:10px;}
+.d-moon-svg{width:64px;height:64px;filter:drop-shadow(0 0 20px rgba(240,208,96,0.5));animation:moonFloat 5s ease-in-out infinite;}
+@keyframes moonFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-8px) rotate(5deg)}}
+.d-moon-glow{position:absolute;inset:-20px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,0.12),transparent 70%);pointer-events:none;}
+
+.d-arabic{font-family:'Amiri',serif;font-size:5.8rem;font-weight:700;line-height:1;
+  background:linear-gradient(170deg,var(--gold3) 0%,var(--gold2) 35%,var(--gold) 65%,#8a6010 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 4px 28px rgba(212,175,55,0.4));margin-bottom:2px;}
+.d-latin{font-family:'Cinzel',serif;font-size:2.2rem;font-weight:900;letter-spacing:20px;
+  background:linear-gradient(135deg,var(--gold2),var(--gold3) 50%,var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:0 0 40px rgba(212,175,55,0.2);}
+.d-tagline{font-size:0.7rem;color:var(--text2);letter-spacing:5px;text-transform:uppercase;margin-top:8px;}
+
+/* ORNAMENT DIVIDER */
+.d-orn-divider{display:flex;align-items:center;gap:10px;justify-content:center;margin:14px auto 16px;max-width:340px;}
+.d-orn-divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.3));}
+.d-orn-divider-line.r{background:linear-gradient(90deg,rgba(212,175,55,0.3),transparent);}
+.d-orn-divider-mid{font-size:0.65rem;color:rgba(212,175,55,0.5);letter-spacing:6px;}
+
+.d-badges{display:flex;justify-content:center;gap:10px;}
+.badge{padding:6px 18px;border-radius:99px;font-size:0.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;}
+.badge-gold{background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.3);color:var(--gold2);}
+.badge-green{background:rgba(46,204,122,0.08);border:1px solid rgba(46,204,122,0.3);color:var(--green3);}
+
+/* ── D NAV ── */
+.d-nav{
+  display:flex;gap:6px;margin:0 0 28px;
+  padding:6px;border-radius:18px;
+  background:rgba(7,11,22,0.8);border:1px solid var(--border2);
+  backdrop-filter:blur(20px);
+}
+.d-nav-btn{
+  flex:1;padding:12px 8px;border-radius:13px;border:none;
+  background:transparent;color:var(--text2);
+  font-size:0.78rem;font-weight:600;cursor:pointer;
+  transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  font-family:'Poppins',sans-serif;letter-spacing:0.5px;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.d-nav-btn .nav-icon{font-size:1rem;transition:transform 0.3s;}
+.d-nav-btn:hover{background:rgba(212,175,55,0.05);color:var(--text);}
+.d-nav-btn:hover .nav-icon{transform:scale(1.15);}
+.d-nav-btn.active{
+  background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(212,175,55,0.05));
+  color:var(--gold2);
+  box-shadow:inset 0 0 0 1px rgba(212,175,55,0.25),0 4px 16px rgba(212,175,55,0.1);
+}
+.d-nav-btn.active .nav-icon{transform:scale(1.1);}
+
+.d-page{display:none;animation:fadeIn 0.4s ease;}
+.d-page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── D HOME GRID ── */
+.d-grid-a{display:grid;grid-template-columns:1.1fr 0.9fr 1fr;gap:18px;margin-bottom:18px;}
+.d-grid-b{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px;}
+
+/* CLOCK */
+.d-clock{padding:30px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.d-clock-eyebrow{font-size:0.58rem;letter-spacing:4px;color:var(--text3);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;}
+.d-clock-eyebrow::before,.d-clock-eyebrow::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.2));}
+.d-clock-eyebrow::after{background:linear-gradient(90deg,rgba(212,175,55,0.2),transparent);}
+.d-clock-digits{font-size:3.8rem;font-weight:800;letter-spacing:6px;line-height:1;
+  background:linear-gradient(170deg,#fff8dc 0%,var(--gold2) 50%,var(--gold) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 20px rgba(212,175,55,0.3));}
 .blink{animation:blink 1s step-start infinite;}
 @keyframes blink{50%{opacity:0}}
-.d-clock-date{font-size:0.78rem;color:var(--text2);margin-top:6px;}
-.d-clock-hijri{display:inline-block;margin-top:8px;padding:4px 16px;border-radius:99px;background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.2);font-size:0.72rem;color:var(--gold);}
+.d-clock-date{font-size:0.8rem;color:var(--text2);margin-top:8px;letter-spacing:0.5px;text-align:center;}
+.d-clock-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:10px;padding:5px 16px;border-radius:99px;
+  background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.18);
+  font-size:0.7rem;color:var(--gold);
+}
+.d-clock-pill::before{content:'🌙';font-size:0.75rem;}
 
-/* DAY CARD DESKTOP */
-.d-daycard{padding:24px;text-align:center;}
-.d-day-num{font-size:4.5rem;font-weight:900;line-height:1;background:linear-gradient(180deg,var(--gold3),var(--gold2) 40%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 20px rgba(212,175,55,0.5));}
-.d-day-lbl{font-size:0.62rem;letter-spacing:4px;color:var(--text2);text-transform:uppercase;}
-.d-day-total{font-size:0.82rem;color:var(--gold);font-weight:500;margin-top:4px;}
-.prog-wrap{margin:14px 0 0;}
-.prog-hdr{display:flex;justify-content:space-between;font-size:0.68rem;color:var(--text2);margin-bottom:6px;}
-.prog-track{height:7px;background:rgba(255,255,255,0.05);border-radius:99px;overflow:hidden;}
-.prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green2),var(--gold2));box-shadow:0 0 10px rgba(212,175,55,0.3);transition:width 1.5s cubic-bezier(.4,0,.2,1);position:relative;}
-.prog-fill::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:11px;height:11px;border-radius:50%;background:var(--gold2);box-shadow:0 0 8px var(--gold2);}
-.prog-dots{display:flex;justify-content:space-between;margin-top:8px;}
-.prog-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.07);}
-.prog-dot.passed{background:var(--gold);box-shadow:0 0 4px rgba(212,175,55,0.5);}
-.cdown-grid{display:flex;gap:7px;margin-top:12px;}
-.cdown-box{flex:1;text-align:center;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.15);border-radius:12px;padding:10px 6px;}
-.cdown-num{font-size:1.6rem;font-weight:700;color:var(--gold2);line-height:1;}
-.cdown-lbl{font-size:0.58rem;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+/* DAY CARD */
+.d-daycard{padding:26px 22px;text-align:center;}
+.d-orn{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:16px;}
+.d-orn-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.25));}
+.d-orn-line.r{background:linear-gradient(90deg,rgba(212,175,55,0.25),transparent);}
+.d-orn-star{font-size:0.65rem;color:rgba(212,175,55,0.4);letter-spacing:4px;}
+.d-day-lbl{font-size:0.58rem;letter-spacing:5px;color:var(--text3);text-transform:uppercase;}
+.d-day-num{
+  font-size:5rem;font-weight:900;line-height:1;margin:6px 0;
+  background:linear-gradient(170deg,var(--gold3),var(--gold2) 40%,var(--gold) 80%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 6px 24px rgba(212,175,55,0.4));
+}
+.d-day-total{font-size:0.78rem;color:var(--gold);font-weight:500;margin-top:3px;}
 
-/* LOCATION DESKTOP */
-.d-loc{padding:16px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all 0.3s;}
-.d-loc:hover{border-color:rgba(212,175,55,0.35);}
-.loc-pulse{width:38px;height:38px;border-radius:50%;background:rgba(46,204,122,0.1);border:1px solid rgba(46,204,122,0.3);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;position:relative;}
+/* PROG */
+.prog-wrap{margin-top:16px;}
+.prog-hdr{display:flex;justify-content:space-between;font-size:0.65rem;color:var(--text3);margin-bottom:7px;letter-spacing:0.5px;}
+.prog-track{height:6px;background:rgba(255,255,255,0.04);border-radius:99px;overflow:visible;position:relative;}
+.prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green2),var(--gold2));box-shadow:0 0 10px rgba(212,175,55,0.25);transition:width 1.5s cubic-bezier(.4,0,.2,1);position:relative;}
+.prog-fill::after{content:'';position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:var(--gold2);box-shadow:0 0 8px var(--gold2),0 0 0 3px rgba(240,208,96,0.2);}
+.prog-dots{display:flex;justify-content:space-between;margin-top:10px;}
+.prog-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.06);transition:0.3s;}
+.prog-dot.passed{background:var(--gold);box-shadow:0 0 5px rgba(212,175,55,0.6);}
+
+/* CDOWN */
+.cdown-grid{display:flex;gap:8px;margin-top:12px;}
+.cbox{flex:1;text-align:center;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.12);border-radius:14px;padding:12px 6px;}
+.cbox-num{font-size:1.6rem;font-weight:700;color:var(--gold2);line-height:1;}
+.cbox-lbl{font-size:0.55rem;color:var(--text3);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px;}
+
+/* LOC+NEXT SIDEBAR */
+.d-sidebar{display:flex;flex-direction:column;gap:14px;}
+.d-loc{padding:18px 20px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:all 0.3s;}
+.d-loc:hover{border-color:rgba(212,175,55,0.3);transform:translateY(-1px);box-shadow:var(--shadow-gold);}
+.loc-pulse{width:40px;height:40px;border-radius:50%;background:var(--green4);border:1px solid rgba(46,204,122,0.3);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;position:relative;}
 .loc-pulse::after{content:'';position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(46,204,122,0.15);animation:lp 2s ease-out infinite;}
-@keyframes lp{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.6);opacity:0}}
-.loc-btn{background:linear-gradient(135deg,var(--green),var(--green2));border:none;border-radius:10px;padding:7px 14px;color:#fff;font-size:0.7rem;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;box-shadow:0 4px 12px rgba(13,92,54,0.4);transition:0.2s;white-space:nowrap;}
-.loc-btn:hover{transform:translateY(-1px);}
+@keyframes lp{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.6);opacity:0}}
+.loc-name{font-size:0.9rem;font-weight:600;}
+.loc-sub{font-size:0.67rem;color:var(--text2);}
+.loc-btn{background:linear-gradient(135deg,var(--green),var(--green2));border:none;border-radius:11px;padding:8px 16px;color:#fff;font-size:0.68rem;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;box-shadow:0 4px 14px rgba(13,92,54,0.35);transition:0.2s;white-space:nowrap;}
+.loc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(13,92,54,0.45);}
 
-/* NEXT EVENT */
 .d-next{padding:18px 20px;display:flex;align-items:center;gap:14px;}
-.next-icon-box{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,rgba(46,204,122,0.15),rgba(13,92,54,0.1));border:1px solid rgba(46,204,122,0.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
-.next-lbl{font-size:0.62rem;color:var(--text2);text-transform:uppercase;letter-spacing:1.5px;}
-.next-name{font-size:1rem;font-weight:600;margin:2px 0;}
-.next-timer{font-size:1.6rem;font-weight:700;letter-spacing:2px;color:var(--green3);text-shadow:0 0 12px rgba(46,204,122,0.4);}
+.next-icon-box{width:50px;height:50px;border-radius:16px;background:var(--green4);border:1px solid rgba(46,204,122,0.2);display:flex;align-items:center;justify-content:center;font-size:1.35rem;flex-shrink:0;}
+.next-eyebrow{font-size:0.6rem;color:var(--text3);text-transform:uppercase;letter-spacing:2px;}
+.next-name-text{font-size:0.95rem;font-weight:600;margin:2px 0;}
+.next-timer-text{font-size:1.5rem;font-weight:800;letter-spacing:3px;color:var(--green3);text-shadow:0 0 14px rgba(46,204,122,0.35);}
 
-/* SCHEDULE DESKTOP — 2 col */
+/* SCHED GRID 2-col */
+.sec-hdr{display:flex;align-items:center;gap:12px;margin:0 0 16px;}
+.sec-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(212,175,55,0.18),transparent);}
+.sec-line.r{background:linear-gradient(90deg,transparent,rgba(212,175,55,0.18));}
+.sec-title{font-family:'Cinzel',serif;font-size:0.72rem;font-weight:700;color:var(--gold);letter-spacing:4px;text-transform:uppercase;}
+
 .d-sched-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.si{border-radius:16px;background:linear-gradient(135deg,rgba(15,24,40,0.9),rgba(9,13,26,0.9));border:1px solid rgba(255,255,255,0.04);padding:13px 15px;display:flex;align-items:center;gap:11px;transition:all 0.4s cubic-bezier(.4,0,.2,1);position:relative;}
-.si::before{content:'';position:absolute;left:0;top:12%;bottom:12%;width:3px;border-radius:0 3px 3px 0;background:transparent;transition:0.4s;}
-.si.active{background:linear-gradient(135deg,rgba(26,40,75,.96),rgba(15,24,50,.98));border-color:rgba(212,175,55,.35);box-shadow:0 4px 24px rgba(212,175,55,.12),inset 0 1px 0 rgba(212,175,55,.1);transform:scale(1.02);}
-.si.active::before{background:var(--gold);box-shadow:0 0 8px var(--gold);}
-.si.next{border-color:rgba(46,204,122,.25);}
+.si{
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(12,20,38,0.9),rgba(7,11,22,0.95));
+  border:1px solid rgba(255,255,255,0.04);
+  padding:14px 16px;display:flex;align-items:center;gap:12px;
+  transition:all 0.4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;
+}
+.si::before{content:'';position:absolute;left:0;top:10%;bottom:10%;width:3px;border-radius:0 3px 3px 0;background:transparent;transition:0.4s;}
+.si::after{content:'';position:absolute;inset:0;background:transparent;transition:0.4s;}
+.si.active{background:linear-gradient(135deg,rgba(22,36,70,.97),rgba(12,20,48,.99));border-color:rgba(212,175,55,.3);box-shadow:0 6px 28px rgba(212,175,55,.1),inset 0 1px 0 rgba(212,175,55,.08);transform:scale(1.015);}
+.si.active::before{background:var(--gold);box-shadow:0 0 10px var(--gold);}
+.si.next{border-color:rgba(46,204,122,.2);}
 .si.next::before{background:var(--green3);}
-.si-icon{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);flex-shrink:0;}
-.si.active .si-icon{background:rgba(212,175,55,.12);border-color:rgba(212,175,55,.2);}
-.si-info{flex:1;min-width:0;}
+.si-icon{width:40px;height:40px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);flex-shrink:0;transition:0.3s;}
+.si.active .si-icon{background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.18);}
 .si-name{font-size:0.82rem;font-weight:600;}
-.si-desc{font-size:0.63rem;color:var(--text2);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.si-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px;}
-.si-time{font-size:1rem;font-weight:700;color:var(--gold2);}
+.si-desc{font-size:0.62rem;color:var(--text2);margin-top:1px;}
+.si-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-left:auto;}
+.si-time{font-size:1rem;font-weight:700;color:var(--gold2);letter-spacing:0.5px;}
 .si.active .si-time{color:var(--gold3);}
-.si-badge{font-size:0.55rem;font-weight:700;letter-spacing:1.5px;padding:2px 8px;border-radius:99px;text-transform:uppercase;display:none;}
-.badge-now{background:rgba(212,175,55,.15);color:var(--gold);border:1px solid rgba(212,175,55,.3);display:block;}
-.badge-next{background:rgba(46,204,122,.12);color:var(--green3);border:1px solid rgba(46,204,122,.25);display:block;}
-
-/* SECTION HEADER */
-.sec-hdr{display:flex;align-items:center;gap:10px;margin:0 0 14px;}
-.sec-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(212,175,55,0.2),transparent);}
-.sec-line.r{background:linear-gradient(90deg,transparent,rgba(212,175,55,0.2));}
-.sec-title{font-family:'Cinzel',serif;font-size:0.75rem;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;}
-
-/* ── DESKTOP KALENDER ── */
-.d-kal-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.kal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:10px;}
-.kal-hdr{font-size:0.6rem;text-align:center;color:var(--text2);font-weight:600;letter-spacing:1px;padding:6px 0;}
-.kal-cell{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:9px;font-size:0.72rem;transition:0.2s;}
-.kal-cell.normal{background:rgba(255,255,255,0.03);color:var(--text2);}
-.kal-cell.ramadan{background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.15);color:var(--gold2);}
-.kal-cell.today{background:linear-gradient(135deg,rgba(212,175,55,0.25),rgba(212,175,55,0.1));border:1px solid rgba(212,175,55,0.5);color:var(--gold3);font-weight:700;box-shadow:0 0 12px rgba(212,175,55,0.2);}
-.kal-cell.friday{color:#7ab8ff;}
-.kal-hijri{font-size:0.48rem;color:var(--text2);margin-top:1px;}
-.kal-cell.ramadan .kal-hijri{color:rgba(212,175,55,0.6);}
-.kal-legend{display:flex;gap:12px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
-.kal-leg-item{display:flex;align-items:center;gap:5px;font-size:0.65rem;color:var(--text2);}
-.kal-leg-dot{width:10px;height:10px;border-radius:3px;}
-
-/* ── AMALAN DESKTOP ── */
-.d-amalan-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.am-card{background:linear-gradient(135deg,rgba(15,24,40,0.9),rgba(9,13,26,0.9));border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:12px;transition:0.3s;cursor:pointer;}
-.am-card:hover{border-color:rgba(212,175,55,0.2);transform:translateY(-1px);}
-.am-card.checked{background:linear-gradient(135deg,rgba(13,92,54,0.2),rgba(5,8,16,.95));border-color:rgba(46,204,122,0.3);}
-.am-icon{width:40px;height:40px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.15);flex-shrink:0;}
-.am-card.checked .am-icon{background:rgba(46,204,122,0.12);border-color:rgba(46,204,122,0.25);}
-.am-name{font-size:0.82rem;font-weight:600;}
-.am-desc{font-size:0.63rem;color:var(--text2);margin-top:1px;}
-.am-check{width:24px;height:24px;border-radius:7px;border:2px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;transition:0.3s;flex-shrink:0;font-size:0.85rem;}
-.am-card.checked .am-check{background:var(--green2);border-color:var(--green3);box-shadow:0 0 8px rgba(46,204,122,0.3);}
-.am-prog-wrap{margin-bottom:16px;}
-.am-prog-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
-.am-prog-title{font-size:0.82rem;font-weight:600;}
-.am-prog-pct{font-size:1.1rem;font-weight:700;color:var(--green3);}
-.am-prog-track{height:8px;background:rgba(255,255,255,0.05);border-radius:99px;overflow:hidden;}
-.am-prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green),var(--green3));transition:width 0.5s;}
-
-/* ── DOA DESKTOP ── */
-.d-doa-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start;}
-.doa-card{background:linear-gradient(135deg,rgba(15,24,40,0.9),rgba(9,13,26,0.9));border:1px solid rgba(255,255,255,0.05);border-radius:18px;overflow:hidden;}
-.doa-header{padding:14px 18px;display:flex;align-items:center;gap:12px;cursor:pointer;}
-.doa-icon{font-size:1.1rem;width:36px;height:36px;border-radius:12px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.doa-title{flex:1;font-size:0.82rem;font-weight:600;}
-.doa-arrow{font-size:0.68rem;color:var(--text2);transition:0.3s;}
-.doa-card.open .doa-arrow{transform:rotate(180deg);color:var(--gold);}
-.doa-body{display:none;padding:0 18px 16px;}
-.doa-card.open .doa-body{display:block;}
-.doa-arabic{font-family:'Amiri',serif;font-size:1.25rem;color:var(--gold);text-align:right;line-height:1.8;direction:rtl;margin-bottom:10px;text-shadow:0 0 8px rgba(212,175,55,0.2);}
-.doa-latin{font-size:0.7rem;color:var(--text2);font-style:italic;margin-bottom:8px;line-height:1.7;}
-.doa-terjemah{font-size:0.72rem;color:var(--text);line-height:1.6;background:rgba(212,175,55,0.04);border-radius:10px;padding:10px 12px;border:1px solid rgba(212,175,55,0.1);}
-
-/* ── TASBIH DESKTOP ── */
-.d-tasbih-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
-.tasbih-main{text-align:center;padding:28px 20px;}
-.tasbih-num{font-size:5rem;font-weight:900;line-height:1;background:linear-gradient(180deg,var(--gold3),var(--gold2) 40%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 20px rgba(212,175,55,0.5));transition:transform 0.1s;}
-.tasbih-num.bump{transform:scale(1.08);}
-.tasbih-arabic{font-family:'Amiri',serif;font-size:1.5rem;color:var(--gold);text-shadow:0 0 10px rgba(212,175,55,0.3);margin:10px 0 4px;}
-.tasbih-latin{font-size:0.8rem;color:var(--text2);font-style:italic;margin-bottom:14px;}
-.tasbih-btn{width:130px;height:130px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--gold),var(--gold2),#a07820);cursor:pointer;font-size:2rem;box-shadow:0 8px 32px rgba(212,175,55,0.4),0 0 0 8px rgba(212,175,55,0.08);transition:all 0.1s;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
-.tasbih-btn:active{transform:scale(0.95);box-shadow:0 4px 16px rgba(212,175,55,0.3);}
-.tsb-controls{display:flex;gap:10px;justify-content:center;}
-.tsb-ctrl{padding:8px 18px;border-radius:12px;border:1px solid rgba(212,175,55,0.2);background:rgba(212,175,55,0.06);color:var(--gold2);font-size:0.75rem;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;transition:0.2s;}
-.tsb-ctrl:hover{border-color:rgba(212,175,55,0.4);background:rgba(212,175,55,0.12);}
-.tasbih-target-info{font-size:0.72rem;color:var(--text2);margin-bottom:6px;}
-.tasbih-target-bar{height:6px;background:rgba(255,255,255,0.05);border-radius:99px;overflow:hidden;margin-bottom:16px;}
-.tasbih-target-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green2),var(--gold2));transition:width 0.3s;}
-.dzikir-list-wrap{padding:20px;}
-.dzikir-lbl{font-size:0.65rem;letter-spacing:2px;color:var(--text2);text-transform:uppercase;margin-bottom:12px;}
-.dzikir-btns{display:flex;flex-direction:column;gap:8px;}
-.dzikir-btn{padding:12px 16px;border-radius:13px;border:1px solid rgba(212,175,55,0.12);background:rgba(15,24,40,0.8);color:var(--text2);font-size:0.78rem;cursor:pointer;font-family:'Poppins',sans-serif;transition:0.2s;text-align:left;display:flex;align-items:center;gap:10px;}
-.dzikir-btn:hover{border-color:rgba(212,175,55,0.25);color:var(--text);}
-.dzikir-btn.active{border-color:rgba(212,175,55,0.4);background:rgba(212,175,55,0.1);color:var(--gold2);}
-.dzikir-btn .dz-arabic{font-family:'Amiri',serif;font-size:1rem;color:var(--gold);direction:rtl;}
-.dzikir-btn.active .dz-arabic{color:var(--gold2);}
-.tsb-total-info{text-align:center;font-size:0.7rem;color:var(--text2);margin-top:12px;}
+.si-badge{font-size:0.54rem;font-weight:700;letter-spacing:1.5px;padding:3px 9px;border-radius:99px;text-transform:uppercase;display:none;}
+.badge-now{background:rgba(212,175,55,.1);color:var(--gold);border:1px solid rgba(212,175,55,.25);display:block;}
+.badge-next{background:rgba(46,204,122,.08);color:var(--green3);border:1px solid rgba(46,204,122,.2);display:block;}
 
 /* SCHED LOADING */
-.sched-loading{text-align:center;padding:30px;color:var(--text2);font-size:0.8rem;}
-.spinner{width:28px;height:28px;margin:0 auto 10px;border:3px solid rgba(212,175,55,0.1);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;}
+.sched-loading{text-align:center;padding:32px;color:var(--text2);font-size:0.8rem;grid-column:span 2;}
+.spinner{width:28px;height:28px;margin:0 auto 12px;border:2px solid rgba(212,175,55,0.1);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* FOOTER */
-.d-footer{text-align:center;margin-top:40px;padding-top:24px;border-top:1px solid rgba(212,175,55,0.08);}
-.footer-arabic{font-family:'Amiri',serif;font-size:1.6rem;color:var(--gold);filter:drop-shadow(0 0 10px rgba(212,175,55,0.3));margin-bottom:8px;}
-.footer-text{font-size:0.72rem;color:var(--text2);line-height:2;}
-.footer-copy{margin-top:16px;padding-top:14px;border-top:1px solid rgba(212,175,55,0.08);}
-.footer-by{font-size:0.6rem;letter-spacing:2px;color:var(--text2);text-transform:uppercase;margin-bottom:5px;}
-.footer-name{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;background:linear-gradient(135deg,var(--gold3),var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 8px rgba(212,175,55,0.3));letter-spacing:1px;}
-.footer-cr{font-size:0.6rem;color:rgba(212,175,55,0.4);margin-top:3px;}
-.footer-api{display:inline-block;margin-top:8px;padding:4px 14px;border-radius:99px;background:rgba(212,175,55,0.04);border:1px solid rgba(212,175,55,0.1);font-size:0.62rem;color:rgba(212,175,55,0.4);}
+/* ── KALENDER ── */
+.d-kal-layout{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.kal-month-title{font-size:0.85rem;font-weight:700;color:var(--gold2);text-align:center;margin-bottom:14px;letter-spacing:2px;font-family:'Cinzel',serif;}
+.kal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.kal-hdr{font-size:0.58rem;text-align:center;color:var(--text3);font-weight:700;letter-spacing:1.5px;padding:7px 0;text-transform:uppercase;}
+.kal-cell{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;font-size:0.72rem;transition:0.2s;cursor:default;}
+.kal-cell.normal{color:var(--text3);}
+.kal-cell.normal:hover{background:rgba(255,255,255,0.04);}
+.kal-cell.ramadan{background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.12);color:var(--gold2);}
+.kal-cell.ramadan:hover{background:rgba(212,175,55,0.12);}
+.kal-cell.today{background:linear-gradient(135deg,rgba(212,175,55,0.22),rgba(212,175,55,0.08));border:1px solid rgba(212,175,55,0.45);color:var(--gold3);font-weight:700;box-shadow:0 0 14px rgba(212,175,55,0.18);}
+.kal-cell.friday:not(.today){color:#7abaff;}
+.kal-sub{font-size:0.46rem;color:var(--text3);margin-top:1px;}
+.kal-cell.ramadan .kal-sub{color:rgba(212,175,55,0.5);}
+.kal-cell.today .kal-sub{color:rgba(255,248,192,0.6);}
+.kal-legend{display:flex;gap:14px;justify-content:center;margin-top:14px;flex-wrap:wrap;}
+.kal-leg{display:flex;align-items:center;gap:5px;font-size:0.62rem;color:var(--text2);}
+.kal-leg-dot{width:10px;height:10px;border-radius:3px;}
+.penting-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:13px;background:rgba(212,175,55,0.04);border:1px solid rgba(212,175,55,0.08);margin-bottom:8px;transition:0.2s;}
+.penting-item:hover{background:rgba(212,175,55,0.07);border-color:rgba(212,175,55,0.15);}
+.penting-icon{font-size:1.05rem;width:32px;text-align:center;}
+.penting-label{flex:1;font-size:0.75rem;font-weight:500;}
+.penting-val{font-size:0.7rem;color:var(--gold);font-weight:600;white-space:nowrap;}
+
+/* ── AMALAN ── */
+.d-amalan-layout{display:grid;grid-template-columns:280px 1fr;gap:20px;align-items:start;}
+.am-stat-card{padding:24px;}
+.am-circle-wrap{display:flex;justify-content:center;margin:16px 0;}
+.am-circle{position:relative;width:120px;height:120px;}
+.am-circle svg{transform:rotate(-90deg);}
+.am-circle-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.am-pct-big{font-size:2rem;font-weight:800;color:var(--gold2);line-height:1;}
+.am-pct-lbl{font-size:0.58rem;color:var(--text3);text-transform:uppercase;letter-spacing:1.5px;}
+.am-stat-msg{text-align:center;font-size:0.74rem;color:var(--text2);line-height:1.6;}
+.am-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.am-card{background:linear-gradient(135deg,rgba(12,20,38,0.9),rgba(7,11,22,.95));border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:13px 15px;display:flex;align-items:center;gap:11px;transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden;}
+.am-card::before{content:'';position:absolute;inset:0;background:transparent;transition:0.3s;}
+.am-card:hover{border-color:rgba(212,175,55,0.18);transform:translateY(-1px);}
+.am-card.checked{background:linear-gradient(135deg,rgba(11,58,40,0.6),rgba(5,12,24,.95));border-color:rgba(46,204,122,0.25);}
+.am-card.checked::before{background:linear-gradient(135deg,rgba(46,204,122,0.04),transparent);}
+.am-icon{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.12);flex-shrink:0;transition:0.3s;}
+.am-card.checked .am-icon{background:rgba(46,204,122,0.1);border-color:rgba(46,204,122,0.2);}
+.am-name{font-size:0.8rem;font-weight:600;}
+.am-desc{font-size:0.61rem;color:var(--text2);margin-top:1px;}
+.am-check{width:22px;height:22px;border-radius:7px;border:1.5px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;transition:0.3s;flex-shrink:0;font-size:0.8rem;margin-left:auto;}
+.am-card.checked .am-check{background:linear-gradient(135deg,var(--green),var(--green2));border-color:var(--green3);box-shadow:0 0 10px rgba(46,204,122,0.25);}
+
+/* ── DOA ── */
+.d-doa-layout{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start;}
+.doa-card{background:linear-gradient(135deg,rgba(12,20,38,0.9),rgba(7,11,22,.95));border:1px solid rgba(255,255,255,0.05);border-radius:20px;overflow:hidden;transition:0.3s;}
+.doa-card:hover{border-color:rgba(212,175,55,0.15);}
+.doa-header{padding:16px 18px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:0.2s;}
+.doa-header:hover{background:rgba(212,175,55,0.03);}
+.doa-icon-wrap{width:38px;height:38px;border-radius:12px;background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.doa-title-text{flex:1;font-size:0.82rem;font-weight:600;}
+.doa-arrow{font-size:0.65rem;color:var(--text3);transition:0.3s;}
+.doa-card.open .doa-arrow{transform:rotate(180deg);color:var(--gold);}
+.doa-card.open .doa-header{border-bottom:1px solid rgba(212,175,55,0.08);}
+.doa-body{display:none;padding:16px 18px;}
+.doa-card.open .doa-body{display:block;}
+.doa-arabic{font-family:'Amiri',serif;font-size:1.4rem;color:var(--gold);text-align:right;line-height:2;direction:rtl;margin-bottom:12px;text-shadow:0 0 10px rgba(212,175,55,0.15);}
+.doa-latin{font-size:0.7rem;color:var(--text2);font-style:italic;margin-bottom:10px;line-height:1.8;}
+.doa-terjemah{font-size:0.72rem;color:var(--text);line-height:1.7;background:rgba(212,175,55,0.03);border-radius:12px;padding:12px 14px;border:1px solid rgba(212,175,55,0.08);}
+
+/* ── TASBIH ── */
+.d-tasbih-layout{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
+.tasbih-center-card{padding:32px 24px;text-align:center;}
+.tsb-arabic{font-family:'Amiri',serif;font-size:2rem;color:var(--gold);text-shadow:0 0 14px rgba(212,175,55,0.25);margin-bottom:4px;}
+.tsb-latin{font-size:0.82rem;color:var(--text2);font-style:italic;margin-bottom:16px;}
+.tsb-target-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.tsb-target-track{flex:1;height:5px;background:rgba(255,255,255,0.04);border-radius:99px;overflow:hidden;}
+.tsb-target-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green2),var(--gold2));transition:width 0.3s;}
+.tsb-target-lbl{font-size:0.65rem;color:var(--text3);white-space:nowrap;}
+.tsb-num{
+  font-size:5.5rem;font-weight:900;line-height:1;margin:6px 0 20px;
+  background:linear-gradient(170deg,var(--gold3),var(--gold2) 40%,var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 4px 22px rgba(212,175,55,0.4));
+  transition:transform 0.1s;
+}
+.tsb-num.bump{transform:scale(1.06);}
+.tsb-btn{
+  width:136px;height:136px;border-radius:50%;border:none;cursor:pointer;
+  background:conic-gradient(from 180deg,var(--gold),var(--gold2),var(--gold3),var(--gold2),var(--gold));
+  font-size:2rem;
+  box-shadow:0 8px 36px rgba(212,175,55,0.35),0 0 0 10px rgba(212,175,55,0.07),0 0 0 18px rgba(212,175,55,0.03);
+  transition:all 0.15s;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
+}
+.tsb-btn:hover{box-shadow:0 12px 40px rgba(212,175,55,0.45),0 0 0 10px rgba(212,175,55,0.1),0 0 0 18px rgba(212,175,55,0.04);}
+.tsb-btn:active{transform:scale(0.94);}
+.tsb-ctrls{display:flex;gap:10px;justify-content:center;}
+.tsb-ctrl{padding:9px 20px;border-radius:12px;border:1px solid rgba(212,175,55,0.18);background:rgba(212,175,55,0.05);color:var(--gold2);font-size:0.73rem;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;transition:0.2s;}
+.tsb-ctrl:hover{border-color:rgba(212,175,55,0.35);background:rgba(212,175,55,0.1);}
+.tsb-total{font-size:0.68rem;color:var(--text3);margin-top:14px;}
+.tsb-list-card{padding:22px;}
+.tsb-list-lbl{font-size:0.6rem;letter-spacing:3px;color:var(--text3);text-transform:uppercase;margin-bottom:14px;}
+.tsb-list{display:flex;flex-direction:column;gap:8px;}
+.tsb-item{
+  padding:13px 16px;border-radius:14px;
+  border:1px solid rgba(212,175,55,0.1);background:rgba(212,175,55,0.04);
+  color:var(--text2);font-size:0.76rem;cursor:pointer;
+  font-family:'Poppins',sans-serif;transition:all 0.25s;
+  display:flex;align-items:center;gap:12px;
+}
+.tsb-item:hover{border-color:rgba(212,175,55,0.22);background:rgba(212,175,55,0.07);color:var(--text);}
+.tsb-item.active{border-color:rgba(212,175,55,0.35);background:rgba(212,175,55,0.1);color:var(--gold2);}
+.tsb-item-arabic{font-family:'Amiri',serif;font-size:1.1rem;color:var(--gold);direction:rtl;flex:1;text-align:right;}
+.tsb-item.active .tsb-item-arabic{color:var(--gold2);}
+.tsb-item-info{display:flex;flex-direction:column;align-items:flex-start;min-width:80px;}
+.tsb-item-latin{font-size:0.72rem;font-weight:600;}
+.tsb-item-target{font-size:0.6rem;color:var(--text3);}
+
+/* ── FOOTER ── */
+.d-footer{text-align:center;margin-top:48px;padding-top:28px;border-top:1px solid rgba(212,175,55,0.07);}
+.footer-arabic{font-family:'Amiri',serif;font-size:1.8rem;color:var(--gold);filter:drop-shadow(0 0 12px rgba(212,175,55,0.25));margin-bottom:8px;}
+.footer-text{font-size:0.72rem;color:var(--text2);line-height:2.2;}
+.footer-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.3),transparent);margin:16px auto;}
+.footer-name-wrap{display:inline-flex;flex-direction:column;align-items:center;gap:4px;}
+.footer-by{font-size:0.58rem;letter-spacing:3px;color:var(--text3);text-transform:uppercase;}
+.footer-name{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;background:linear-gradient(135deg,var(--gold3),var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1.5px;}
+.footer-cr{font-size:0.58rem;color:rgba(212,175,55,0.35);margin-top:2px;}
+.footer-api{display:inline-block;margin-top:12px;padding:4px 16px;border-radius:99px;background:rgba(212,175,55,0.03);border:1px solid rgba(212,175,55,0.08);font-size:0.6rem;color:rgba(212,175,55,0.35);}
 
 /* NOTIF */
-.notif{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:linear-gradient(135deg,rgba(26,140,84,.95),rgba(13,92,54,.98));border:1px solid rgba(46,204,122,0.3);border-radius:14px;padding:10px 22px;font-size:0.78rem;color:#fff;z-index:9999;opacity:0;transition:all 0.4s;pointer-events:none;white-space:nowrap;}
+.notif{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);background:linear-gradient(135deg,rgba(22,120,74,.97),rgba(10,74,44,.99));border:1px solid rgba(46,204,122,0.3);border-radius:14px;padding:11px 24px;font-size:0.76rem;color:#fff;z-index:9999;opacity:0;transition:all 0.4s;pointer-events:none;white-space:nowrap;box-shadow:0 8px 24px rgba(46,204,122,0.2);}
 .notif.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
-/* ════════════ MOBILE ════════════ */
-.m-nav{position:sticky;top:0;z-index:100;display:flex;gap:5px;padding:10px 0 8px;background:linear-gradient(180deg,rgba(5,8,16,.98) 80%,transparent);backdrop-filter:blur(12px);}
-.m-nav-btn{flex:1;padding:9px 4px;border-radius:12px;border:1px solid rgba(212,175,55,0.1);background:rgba(15,24,40,0.6);color:var(--text2);font-size:0.62rem;font-weight:600;text-align:center;cursor:pointer;transition:all 0.3s;font-family:'Poppins',sans-serif;}
-.m-nav-btn.active{background:linear-gradient(135deg,rgba(212,175,55,0.2),rgba(212,175,55,0.05));border-color:rgba(212,175,55,0.4);color:var(--gold2);}
-.m-page{display:none;}.m-page.active{display:block;}
+/* ══════════════════════════════════
+   MOBILE  
+══════════════════════════════════ */
+.m-nav{position:sticky;top:0;z-index:100;display:flex;gap:5px;padding:10px 0 8px;background:linear-gradient(180deg,rgba(3,6,14,.99) 80%,transparent);backdrop-filter:blur(16px);}
+.m-nav-btn{flex:1;padding:9px 4px;border-radius:12px;border:1px solid rgba(212,175,55,0.08);background:rgba(12,20,38,0.7);color:var(--text3);font-size:0.6rem;font-weight:600;text-align:center;cursor:pointer;transition:all 0.3s;font-family:'Poppins',sans-serif;}
+.m-nav-btn.active{background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(212,175,55,0.04));border-color:rgba(212,175,55,0.3);color:var(--gold2);}
+.m-page{display:none;animation:fadeIn 0.35s ease;}.m-page.active{display:block;}
 
-.m-hero{text-align:center;padding:36px 0 18px;}
-.m-lantern-row{display:flex;justify-content:space-between;align-items:flex-start;padding:0 5px;margin-bottom:14px;}
-.m-lantern{width:32px;animation:swL 3.5s ease-in-out infinite;}
-.m-lantern:last-child{animation-name:swR;}
-.m-lantern svg{width:100%;filter:drop-shadow(0 0 8px rgba(212,175,55,0.7));}
-.m-arabic{font-family:'Amiri',serif;font-size:3.6rem;font-weight:700;background:linear-gradient(180deg,var(--gold3),var(--gold2) 50%,#a07820);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1;}
-.m-latin{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:700;letter-spacing:9px;color:var(--gold2);}
-.m-tagline{font-size:0.65rem;color:var(--text2);letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
-.m-badges{display:flex;justify-content:center;gap:8px;margin-top:10px;}
+.m-hero{text-align:center;padding:38px 0 16px;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(212,175,55,0.06),transparent);}
+.m-lanterns{display:flex;justify-content:space-between;align-items:flex-start;padding:0 4px;margin-bottom:14px;}
+.m-lantern{width:30px;animation:swingL 4s ease-in-out infinite;}
+.m-lantern.r{animation-name:swingR;}
+.m-lantern svg{width:100%;filter:drop-shadow(0 0 10px rgba(212,175,55,0.7));}
+.m-arabic{font-family:'Amiri',serif;font-size:3.8rem;font-weight:700;background:linear-gradient(170deg,var(--gold3),var(--gold2) 50%,#8a6010);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1;}
+.m-latin{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:900;letter-spacing:8px;color:var(--gold2);}
+.m-tagline{font-size:0.62rem;color:var(--text3);letter-spacing:3.5px;text-transform:uppercase;margin-top:4px;}
+.m-badges{display:flex;justify-content:center;gap:7px;margin-top:10px;}
 
-.m-clock{margin:0 0 11px;padding:22px;text-align:center;}
-.m-clock-time{font-size:3.4rem;font-weight:700;letter-spacing:4px;line-height:1;background:linear-gradient(180deg,#fff8dc,var(--gold2) 50%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.m-clock-date{font-size:0.78rem;color:var(--text2);margin-top:5px;}
-.m-clock-hijri{display:inline-block;margin-top:7px;padding:4px 14px;border-radius:99px;background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.2);font-size:0.7rem;color:var(--gold);}
+.mb12{margin-bottom:12px;}
+.mpad{padding:20px;}
+.mpad-sm{padding:16px;}
 
-.m-loc{margin:0 0 11px;padding:13px 16px;display:flex;align-items:center;gap:11px;cursor:pointer;transition:all 0.3s;}
-.m-loc:hover{border-color:rgba(212,175,55,.35);}
-.m-day-card{margin:0 0 11px;padding:20px;text-align:center;}
-.orn{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:12px;}
-.orn-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.3));}
-.orn-line.r{background:linear-gradient(90deg,rgba(212,175,55,.3),transparent);}
+.m-clock{padding:22px;text-align:center;}
+.m-clock-digits{font-size:3.5rem;font-weight:800;letter-spacing:5px;line-height:1;background:linear-gradient(170deg,#fff8dc,var(--gold2) 50%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.m-clock-date{font-size:0.76rem;color:var(--text2);margin-top:6px;}
+.m-clock-pill{display:inline-flex;align-items:center;gap:5px;margin-top:8px;padding:4px 14px;border-radius:99px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.15);font-size:0.68rem;color:var(--gold);}
 
-.m-next{margin:0 0 11px;padding:15px 18px;display:flex;align-items:center;gap:13px;}
-.m-next-icon{width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,rgba(46,204,122,.15),rgba(13,92,54,.1));border:1px solid rgba(46,204,122,.2);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;}
+.m-loc{padding:13px 16px;display:flex;align-items:center;gap:11px;cursor:pointer;transition:all 0.3s;}
+.m-loc:hover{border-color:rgba(212,175,55,.3);}
 
-.m-sched-grid{display:flex;flex-direction:column;gap:7px;}
-.m-footer{text-align:center;margin-top:28px;padding-top:20px;border-top:1px solid rgba(212,175,55,.08);}
+.m-day{padding:20px;text-align:center;}
+.m-orn{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.m-orn-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.25));}
+.m-orn-line.r{background:linear-gradient(90deg,rgba(212,175,55,.25),transparent);}
 
-/* mobile amalan */
-.m-amalan-grid{display:flex;flex-direction:column;gap:7px;}
-/* mobile doa */
-.m-doa-list{display:flex;flex-direction:column;gap:9px;}
+.m-next{padding:15px 17px;display:flex;align-items:center;gap:12px;}
+.m-next-icon{width:46px;height:46px;border-radius:15px;background:var(--green4);border:1px solid rgba(46,204,122,.2);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;}
+
+.m-sched{display:flex;flex-direction:column;gap:7px;}
+.m-am-grid{display:flex;flex-direction:column;gap:7px;}
+.m-doa-list{display:flex;flex-direction:column;gap:8px;}
+
 /* mobile tasbih */
-.m-tasbih{text-align:center;padding:22px 18px 26px;}
-.m-dzikir-list{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:14px;}
-.m-dzikir-btn{padding:7px 13px;border-radius:99px;border:1px solid rgba(212,175,55,.15);background:rgba(15,24,40,.8);color:var(--text2);font-size:0.67rem;cursor:pointer;font-family:'Poppins',sans-serif;transition:0.2s;}
-.m-dzikir-btn.active{border-color:rgba(212,175,55,.4);background:rgba(212,175,55,.1);color:var(--gold2);}
+.m-tsb{padding:22px 18px 26px;text-align:center;}
+.m-dzikir-pills{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;}
+.m-dzk-pill{padding:6px 13px;border-radius:99px;border:1px solid rgba(212,175,55,.12);background:rgba(12,20,38,.8);color:var(--text3);font-size:0.65rem;cursor:pointer;font-family:'Poppins',sans-serif;transition:0.2s;}
+.m-dzk-pill.active{border-color:rgba(212,175,55,.35);background:rgba(212,175,55,.09);color:var(--gold2);}
+
+/* mobile amalan circle */
+.m-am-stat{padding:18px;text-align:center;}
+.m-am-circle{position:relative;width:90px;height:90px;margin:10px auto;}
+.m-am-circle svg{transform:rotate(-90deg);}
+.m-am-circle-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 </style>
 </head>
 <body>
 <canvas id="bg-canvas"></canvas>
 
-<!-- ════════════════════════════════════════════
-     DESKTOP
-════════════════════════════════════════════ -->
-<div class="desktop-wrap">
-  <!-- Header -->
-  <div class="d-header">
+<!-- ══════════ DESKTOP ══════════ -->
+<div class="desktop">
+  <!-- HERO -->
+  <div class="d-hero">
+    <div class="d-hero-deco">
+      <span>✦</span><span>🌙</span><span>✦</span><span>🌙</span><span>⭐</span><span>⭐</span>
+    </div>
     <div class="d-lantern-row">
-      <svg class="d-lantern" viewBox="0 0 40 70"><line x1="20" y1="0" x2="20" y2="8" stroke="#d4af37" stroke-width="1.5"/><rect x="8" y="8" width="24" height="4" rx="2" fill="#d4af37"/><rect x="10" y="12" width="20" height="40" rx="4" fill="rgba(212,175,55,0.15)" stroke="#d4af37" stroke-width="1"/><defs><radialGradient id="lg1" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,200,50,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><rect x="10" y="12" width="20" height="40" rx="4" fill="url(#lg1)"/><line x1="10" y1="22" x2="30" y2="22" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="32" x2="30" y2="32" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="42" x2="30" y2="42" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><rect x="12" y="52" width="16" height="4" rx="2" fill="#d4af37"/><polygon points="16,56 24,56 22,63 18,63" fill="#d4af37"/></svg>
+      <svg class="lantern-svg" viewBox="0 0 40 70"><line x1="20" y1="0" x2="20" y2="8" stroke="#d4af37" stroke-width="1.5"/><rect x="8" y="8" width="24" height="4" rx="2" fill="#d4af37"/><rect x="10" y="12" width="20" height="40" rx="4" fill="rgba(212,175,55,0.15)" stroke="#d4af37" stroke-width="1"/><defs><radialGradient id="lg1" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,200,50,0.4)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><rect x="10" y="12" width="20" height="40" rx="4" fill="url(#lg1)"/><line x1="10" y1="22" x2="30" y2="22" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="32" x2="30" y2="32" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="42" x2="30" y2="42" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><rect x="12" y="52" width="16" height="4" rx="2" fill="#d4af37"/><polygon points="16,56 24,56 22,63 18,63" fill="#d4af37"/></svg>
       <div style="flex:1;text-align:center">
         <div class="d-arabic">رَمَضَان</div>
         <div class="d-latin">Ramadhan</div>
         <div class="d-tagline">Bulan Penuh Berkah & Ampunan</div>
-        <div class="d-badges"><span class="badge-pill bp-gold">1447 Hijriah</span><span class="badge-pill bp-green">2026 Masehi</span></div>
+        <div class="d-badges"><span class="badge badge-gold">1447 Hijriah</span><span class="badge badge-green">2026 Masehi</span></div>
       </div>
-      <svg class="d-lantern" viewBox="0 0 40 70"><line x1="20" y1="0" x2="20" y2="8" stroke="#d4af37" stroke-width="1.5"/><rect x="8" y="8" width="24" height="4" rx="2" fill="#d4af37"/><rect x="10" y="12" width="20" height="40" rx="4" fill="rgba(212,175,55,0.15)" stroke="#d4af37" stroke-width="1"/><defs><radialGradient id="lg2" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,200,50,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><rect x="10" y="12" width="20" height="40" rx="4" fill="url(#lg2)"/><line x1="10" y1="22" x2="30" y2="22" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="32" x2="30" y2="32" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="42" x2="30" y2="42" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><rect x="12" y="52" width="16" height="4" rx="2" fill="#d4af37"/><polygon points="16,56 24,56 22,63 18,63" fill="#d4af37"/></svg>
+      <svg class="lantern-svg r" viewBox="0 0 40 70"><line x1="20" y1="0" x2="20" y2="8" stroke="#d4af37" stroke-width="1.5"/><rect x="8" y="8" width="24" height="4" rx="2" fill="#d4af37"/><rect x="10" y="12" width="20" height="40" rx="4" fill="rgba(212,175,55,0.15)" stroke="#d4af37" stroke-width="1"/><defs><radialGradient id="lg2" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,200,50,0.4)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><rect x="10" y="12" width="20" height="40" rx="4" fill="url(#lg2)"/><line x1="10" y1="22" x2="30" y2="22" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="32" x2="30" y2="32" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="42" x2="30" y2="42" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><rect x="12" y="52" width="16" height="4" rx="2" fill="#d4af37"/><polygon points="16,56 24,56 22,63 18,63" fill="#d4af37"/></svg>
     </div>
   </div>
 
-  <!-- Nav -->
+  <!-- NAV -->
   <div class="d-nav">
-    <button class="d-nav-btn active" onclick="dGoPage('home',this)">Beranda</button>
-    <button class="d-nav-btn" onclick="dGoPage('kalender',this)">Kalender</button>
-    <button class="d-nav-btn" onclick="dGoPage('amalan',this)">Amalan Harian</button>
-    <button class="d-nav-btn" onclick="dGoPage('doa',this)">Doa Ramadhan</button>
-    <button class="d-nav-btn" onclick="dGoPage('tasbih',this)">Tasbih Digital</button>
+    <button class="d-nav-btn active" onclick="dPage('home',this)"><span class="nav-icon">🏠</span>Beranda</button>
+    <button class="d-nav-btn" onclick="dPage('kal',this)"><span class="nav-icon">📅</span>Kalender</button>
+    <button class="d-nav-btn" onclick="dPage('aml',this)"><span class="nav-icon">✅</span>Amalan Harian</button>
+    <button class="d-nav-btn" onclick="dPage('doa',this)"><span class="nav-icon">🤲</span>Doa Ramadhan</button>
+    <button class="d-nav-btn" onclick="dPage('tsb',this)"><span class="nav-icon">📿</span>Tasbih Digital</button>
   </div>
 
   <!-- HOME -->
-  <div class="d-page active" id="d-page-home">
-    <div class="d-grid-top">
-      <!-- Clock -->
+  <div class="d-page active" id="dp-home">
+    <div class="d-grid-a">
       <div class="glass d-clock">
-        <div class="d-clock-lbl">Waktu Sekarang</div>
-        <div class="d-clock-time"><span id="d-ch">--</span><span class="blink">:</span><span id="d-cm">--</span><span class="blink">:</span><span id="d-cs">--</span></div>
-        <div class="d-clock-date" id="d-clock-date">Memuat...</div>
-        <div class="d-clock-hijri" id="d-clock-hijri">— Hijriah —</div>
+        <div class="d-clock-eyebrow">Waktu Sekarang</div>
+        <div class="d-clock-digits"><span id="dch">--</span><span class="blink">:</span><span id="dcm">--</span><span class="blink">:</span><span id="dcs">--</span></div>
+        <div class="d-clock-date" id="dcd">Memuat...</div>
+        <div class="d-clock-pill" id="dchj">— Hijriah —</div>
       </div>
-      <!-- Day -->
       <div class="glass d-daycard">
+        <div class="d-orn"><div class="d-orn-line"></div><span class="d-orn-star">✦ ✦ ✦</span><div class="d-orn-line r"></div></div>
         <div class="d-day-lbl">Hari Ke</div>
-        <div class="d-day-num" id="d-day-num">—</div>
+        <div class="d-day-num" id="ddn">—</div>
         <div class="d-day-lbl" style="letter-spacing:2px">Ramadhan 1447 H</div>
-        <div class="d-day-total" id="d-day-total">19 Feb — 20 Mar 2026</div>
-        <div id="d-before-cdown" style="display:none;margin-top:14px">
+        <div class="d-day-total" id="ddt">19 Feb — 20 Mar 2026</div>
+        <div id="dbc" style="display:none;margin-top:14px">
           <div class="d-day-lbl" style="margin-bottom:9px">Ramadhan Dimulai Dalam</div>
-          <div class="cdown-grid"><div class="cdown-box"><div class="cdown-num" id="d-cd-d">-</div><div class="cdown-lbl">Hari</div></div><div class="cdown-box"><div class="cdown-num" id="d-cd-h">-</div><div class="cdown-lbl">Jam</div></div><div class="cdown-box"><div class="cdown-num" id="d-cd-m">-</div><div class="cdown-lbl">Menit</div></div><div class="cdown-box"><div class="cdown-num" id="d-cd-s">-</div><div class="cdown-lbl">Detik</div></div></div>
+          <div class="cdown-grid"><div class="cbox"><div class="cbox-num" id="dcd-d">-</div><div class="cbox-lbl">Hari</div></div><div class="cbox"><div class="cbox-num" id="dcd-h">-</div><div class="cbox-lbl">Jam</div></div><div class="cbox"><div class="cbox-num" id="dcd-m">-</div><div class="cbox-lbl">Menit</div></div><div class="cbox"><div class="cbox-num" id="dcd-s">-</div><div class="cbox-lbl">Detik</div></div></div>
         </div>
-        <div class="prog-wrap" id="d-prog-wrap" style="display:none">
-          <div class="prog-hdr"><span>1 Ramadhan</span><span id="d-prog-pct">0%</span><span>30 Ramadhan</span></div>
-          <div class="prog-track"><div class="prog-fill" id="d-prog-fill" style="width:0%"></div></div>
-          <div class="prog-dots" id="d-prog-dots"></div>
+        <div class="prog-wrap" id="dpw" style="display:none">
+          <div class="prog-hdr"><span>1 Ramadhan</span><span id="dpp">0%</span><span>30 Ramadhan</span></div>
+          <div class="prog-track"><div class="prog-fill" id="dpf" style="width:0%"></div></div>
+          <div class="prog-dots" id="dpd"></div>
         </div>
       </div>
-      <!-- Location + Next stacked -->
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <div class="glass d-loc" id="d-loc-card" onclick="getLocation()">
+      <div class="d-sidebar">
+        <div class="glass d-loc" onclick="getLocation()">
           <div class="loc-pulse">📍</div>
-          <div style="flex:1"><div style="font-size:0.88rem;font-weight:600" id="d-loc-name">Lokasi belum terdeteksi</div><div style="font-size:0.68rem;color:var(--text2)" id="d-loc-sub">Klik untuk mendeteksi</div></div>
-          <button class="loc-btn" id="d-loc-btn">Deteksi</button>
+          <div style="flex:1"><div class="loc-name" id="dln">Lokasi belum terdeteksi</div><div class="loc-sub" id="dls">Klik untuk mendeteksi</div></div>
+          <button class="loc-btn" id="dlb">Deteksi</button>
         </div>
         <div class="glass d-next">
-          <div class="next-icon-box" id="d-next-icon">⏳</div>
-          <div><div class="next-lbl">Menuju Waktu Berikutnya</div><div class="next-name" id="d-next-name">Menunggu lokasi...</div><div class="next-timer" id="d-next-timer">--:--:--</div></div>
+          <div class="next-icon-box" id="dni">⏳</div>
+          <div><div class="next-eyebrow">Menuju Waktu Berikutnya</div><div class="next-name-text" id="dnn">Menunggu lokasi...</div><div class="next-timer-text" id="dnt">--:--:--</div></div>
         </div>
       </div>
     </div>
-
-    <!-- Schedule 2-col -->
     <div class="sec-hdr"><div class="sec-line"></div><div class="sec-title">✦ Jadwal Shalat & Puasa Hari Ini ✦</div><div class="sec-line r"></div></div>
-    <div id="d-sched-loading" class="sched-loading"><div class="spinner"></div>Izinkan akses lokasi untuk jadwal akurat</div>
-    <div class="d-sched-grid" id="d-sched-grid"></div>
+    <div class="d-sched-grid" id="dsg"><div class="sched-loading" style="grid-column:span 2"><div class="spinner"></div>Izinkan akses lokasi untuk jadwal akurat</div></div>
   </div>
 
   <!-- KALENDER -->
-  <div class="d-page" id="d-page-kalender">
-    <div class="d-kal-wrap">
-      <div>
-        <div class="glass pad" id="d-kal-feb"></div>
-      </div>
-      <div>
-        <div class="glass pad" id="d-kal-mar"></div>
-        <div class="glass pad" style="margin-top:16px" id="d-penting"></div>
+  <div class="d-page" id="dp-kal">
+    <div class="d-kal-layout">
+      <div><div class="glass" style="padding:22px" id="dk-feb"></div></div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="glass" style="padding:22px" id="dk-mar"></div>
+        <div class="glass" style="padding:20px" id="dk-pen"></div>
       </div>
     </div>
   </div>
 
   <!-- AMALAN -->
-  <div class="d-page" id="d-page-amalan">
-    <div class="glass pad" style="margin-bottom:16px">
-      <div class="am-prog-wrap">
-        <div class="am-prog-info"><span class="am-prog-title">Progress Amalan Hari Ini</span><span class="am-prog-pct" id="d-am-pct">0%</span></div>
-        <div class="am-prog-track"><div class="am-prog-fill" id="d-am-fill" style="width:0%"></div></div>
+  <div class="d-page" id="dp-aml">
+    <div class="d-amalan-layout">
+      <div class="glass am-stat-card">
+        <div class="sec-hdr" style="margin-bottom:12px"><div class="sec-line"></div><div class="sec-title" style="font-size:0.65rem">Progress</div><div class="sec-line r"></div></div>
+        <div class="am-circle-wrap">
+          <div class="am-circle">
+            <svg width="120" height="120" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="10"/>
+              <circle id="d-am-arc" cx="60" cy="60" r="52" fill="none" stroke="url(#amGrad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="326.73" style="transition:stroke-dashoffset 0.8s cubic-bezier(.4,0,.2,1)"/>
+              <defs><linearGradient id="amGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1a8c54"/><stop offset="100%" stop-color="#f0d060"/></linearGradient></defs>
+            </svg>
+            <div class="am-circle-text"><div class="am-pct-big" id="d-am-pct">0%</div><div class="am-pct-lbl">Selesai</div></div>
+          </div>
+        </div>
+        <div class="am-stat-msg" id="d-am-msg">Mulai checklist amalan harianmu 💪</div>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--text2)"><span>Selesai</span><span id="d-am-done" style="color:var(--green3);font-weight:600">0/12</span></div>
+          <div style="height:5px;background:rgba(255,255,255,0.04);border-radius:99px;overflow:hidden"><div id="d-am-bar" style="height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green2),var(--gold2));width:0%;transition:0.5s"></div></div>
+        </div>
       </div>
-      <div style="text-align:center;font-size:0.75rem;color:var(--text2)" id="d-am-status">Mulai checklist amalan harianmu 💪</div>
+      <div class="am-grid" id="d-am-grid"></div>
     </div>
-    <div class="d-amalan-wrap" id="d-amalan-grid"></div>
   </div>
 
   <!-- DOA -->
-  <div class="d-page" id="d-page-doa">
-    <div class="d-doa-wrap" id="d-doa-list"></div>
+  <div class="d-page" id="dp-doa">
+    <div class="d-doa-layout" id="d-doa-list"></div>
   </div>
 
   <!-- TASBIH -->
-  <div class="d-page" id="d-page-tasbih">
-    <div class="d-tasbih-wrap">
-      <div class="glass tasbih-main">
-        <div class="tasbih-arabic" id="d-tsb-arabic">سُبْحَانَ اللَّهِ</div>
-        <div class="tasbih-latin" id="d-tsb-latin">Subhanallah</div>
-        <div class="tasbih-target-info" id="d-tsb-info">0 / 33</div>
-        <div class="tasbih-target-bar"><div class="tasbih-target-fill" id="d-tsb-bar" style="width:0%"></div></div>
-        <div class="tasbih-num" id="d-tsb-count">0</div>
-        <button class="tasbih-btn" onclick="tasbihTap('d')">📿</button>
-        <div class="tsb-controls">
-          <button class="tsb-ctrl" onclick="tasbihReset('d')">Reset</button>
-          <button class="tsb-ctrl" onclick="tasbihUndo('d')">Undo</button>
-        </div>
-        <div class="tsb-total-info">Total sesi: <span id="d-tsb-total" style="color:var(--gold)">0</span></div>
+  <div class="d-page" id="dp-tsb">
+    <div class="d-tasbih-layout">
+      <div class="glass tasbih-center-card">
+        <div class="tsb-arabic" id="d-ta">سُبْحَانَ اللَّهِ</div>
+        <div class="tsb-latin" id="d-tl">Subhanallah</div>
+        <div class="tsb-target-row"><div class="tsb-target-track"><div class="tsb-target-fill" id="d-tb" style="width:0%"></div></div><div class="tsb-target-lbl" id="d-ti">0/33</div></div>
+        <div class="tsb-num" id="d-tc">0</div>
+        <button class="tsb-btn" onclick="tsbTap('d')">📿</button>
+        <div class="tsb-ctrls"><button class="tsb-ctrl" onclick="tsbReset('d')">🔄 Reset</button><button class="tsb-ctrl" onclick="tsbUndo('d')">↩ Undo</button></div>
+        <div class="tsb-total">Total sesi: <span id="d-tt" style="color:var(--gold)">0</span></div>
       </div>
-      <div class="glass dzikir-list-wrap">
-        <div class="dzikir-lbl">Pilih Dzikir</div>
-        <div class="dzikir-btns" id="d-dzikir-list"></div>
+      <div class="glass tsb-list-card">
+        <div class="tsb-list-lbl">Pilih Dzikir</div>
+        <div class="tsb-list" id="d-dzk"></div>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <div class="d-footer">
     <div class="footer-arabic">رَمَضَانُ شَهْرُ الْقُرْآنِ</div>
-    <div class="footer-text">Selamat Menunaikan Ibadah Puasa · Semoga Amal Ibadah Diterima Allah SWT<br><span style="color:var(--gold)">Ramadhan Mubarak 🌙</span></div>
-    <div class="footer-copy">
+    <div class="footer-text">Selamat Menunaikan Ibadah Puasa · Semoga Amal Ibadah Diterima Allah SWT<br><span style="color:var(--gold2)">Ramadhan Mubarak 🌙</span></div>
+    <div class="footer-divider"></div>
+    <div class="footer-name-wrap">
       <div class="footer-by">Dibuat dengan ❤️ oleh</div>
       <div class="footer-name">Muhammad Adam Abdillah</div>
       <div class="footer-cr">© 2026 · All Rights Reserved</div>
     </div>
-    <div class="footer-api">Aladhan API · OpenStreetMap · 1447H</div>
+    <div><div class="footer-api">Aladhan API · OpenStreetMap · Ramadhan 1447H</div></div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════
-     MOBILE
-════════════════════════════════════════════ -->
-<div class="mobile-wrap">
+<!-- ══════════ MOBILE ══════════ -->
+<div class="mobile">
   <div class="m-nav">
-    <button class="m-nav-btn active" onclick="mGoPage('home',this)">Beranda</button>
-    <button class="m-nav-btn" onclick="mGoPage('kalender',this)">Kalender</button>
-    <button class="m-nav-btn" onclick="mGoPage('amalan',this)">Amalan</button>
-    <button class="m-nav-btn" onclick="mGoPage('doa',this)">Doa</button>
-    <button class="m-nav-btn" onclick="mGoPage('tasbih',this)">Tasbih</button>
+    <button class="m-nav-btn active" onclick="mPage('home',this)">🏠 Beranda</button>
+    <button class="m-nav-btn" onclick="mPage('kal',this)">📅 Kalender</button>
+    <button class="m-nav-btn" onclick="mPage('aml',this)">✅ Amalan</button>
+    <button class="m-nav-btn" onclick="mPage('doa',this)">🤲 Doa</button>
+    <button class="m-nav-btn" onclick="mPage('tsb',this)">📿 Tasbih</button>
   </div>
 
   <!-- M HOME -->
-  <div class="m-page active" id="m-page-home">
+  <div class="m-page active" id="mp-home">
     <div class="m-hero">
-      <div class="m-lantern-row">
-        <svg class="m-lantern" viewBox="0 0 40 70"><line x1="20" y1="0" x2="20" y2="8" stroke="#d4af37" stroke-width="1.5"/><rect x="8" y="8" width="24" height="4" rx="2" fill="#d4af37"/><rect x="10" y="12" width="20" height="40" rx="4" fill="rgba(212,175,55,0.15)" stroke="#d4af37" stroke-width="1"/><defs><radialGradient id="mlg1" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,200,50,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><rect x="10" y="12" width="20" height="40" rx="4" fill="url(#mlg1)"/><line x1="10" y1="22" x2="30" y2="22" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="32" x2="30" y2="32" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="42" x2="30" y2="42" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><rect x="12" y="52" width="16" height="4" rx="2" fill="#d4af37"/><polygon points="16,56 24,56 22,63 18,63" fill="#d4af37"/></svg>
-        <div style="flex:1;text-align:center"><div class="m-arabic">رَمَضَان</div><div class="m-latin">Ramadhan</div><div class="m-tagline">Bulan Penuh Berkah & Ampunan</div><div class="m-badges"><span class="badge-pill bp-gold">1447 H</span><span class="badge-pill bp-green">2026 M</span></div></div>
-        <svg class="m-lantern" viewBox="0 0 40 70"><line x1="20" y1="0" x2="20" y2="8" stroke="#d4af37" stroke-width="1.5"/><rect x="8" y="8" width="24" height="4" rx="2" fill="#d4af37"/><rect x="10" y="12" width="20" height="40" rx="4" fill="rgba(212,175,55,0.15)" stroke="#d4af37" stroke-width="1"/><defs><radialGradient id="mlg2" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,200,50,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><rect x="10" y="12" width="20" height="40" rx="4" fill="url(#mlg2)"/><line x1="10" y1="22" x2="30" y2="22" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="32" x2="30" y2="32" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="42" x2="30" y2="42" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><rect x="12" y="52" width="16" height="4" rx="2" fill="#d4af37"/><polygon points="16,56 24,56 22,63 18,63" fill="#d4af37"/></svg>
+      <div class="m-lanterns">
+        <svg class="m-lantern" viewBox="0 0 40 70"><line x1="20" y1="0" x2="20" y2="8" stroke="#d4af37" stroke-width="1.5"/><rect x="8" y="8" width="24" height="4" rx="2" fill="#d4af37"/><rect x="10" y="12" width="20" height="40" rx="4" fill="rgba(212,175,55,0.15)" stroke="#d4af37" stroke-width="1"/><defs><radialGradient id="mlg1" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,200,50,0.4)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><rect x="10" y="12" width="20" height="40" rx="4" fill="url(#mlg1)"/><line x1="10" y1="22" x2="30" y2="22" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="32" x2="30" y2="32" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="42" x2="30" y2="42" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><rect x="12" y="52" width="16" height="4" rx="2" fill="#d4af37"/><polygon points="16,56 24,56 22,63 18,63" fill="#d4af37"/></svg>
+        <div style="flex:1;text-align:center"><div class="m-arabic">رَمَضَان</div><div class="m-latin">Ramadhan</div><div class="m-tagline">Bulan Penuh Berkah & Ampunan</div><div class="m-badges"><span class="badge badge-gold" style="font-size:0.62rem;padding:4px 12px">1447 H</span><span class="badge badge-green" style="font-size:0.62rem;padding:4px 12px">2026 M</span></div></div>
+        <svg class="m-lantern r" viewBox="0 0 40 70"><line x1="20" y1="0" x2="20" y2="8" stroke="#d4af37" stroke-width="1.5"/><rect x="8" y="8" width="24" height="4" rx="2" fill="#d4af37"/><rect x="10" y="12" width="20" height="40" rx="4" fill="rgba(212,175,55,0.15)" stroke="#d4af37" stroke-width="1"/><defs><radialGradient id="mlg2" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,200,50,0.4)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><rect x="10" y="12" width="20" height="40" rx="4" fill="url(#mlg2)"/><line x1="10" y1="22" x2="30" y2="22" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="32" x2="30" y2="32" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><line x1="10" y1="42" x2="30" y2="42" stroke="rgba(212,175,55,0.2)" stroke-width="0.5"/><rect x="12" y="52" width="16" height="4" rx="2" fill="#d4af37"/><polygon points="16,56 24,56 22,63 18,63" fill="#d4af37"/></svg>
       </div>
     </div>
-    <div class="glass m-clock">
-      <div style="font-size:0.6rem;letter-spacing:3px;color:var(--text2);text-transform:uppercase;margin-bottom:8px">WAKTU SEKARANG</div>
-      <div class="m-clock-time"><span id="m-ch">--</span><span class="blink">:</span><span id="m-cm">--</span><span class="blink">:</span><span id="m-cs">--</span></div>
-      <div class="m-clock-date" id="m-clock-date">Memuat...</div>
-      <div class="m-clock-hijri" id="m-clock-hijri">— Hijriah —</div>
+    <div class="glass m-clock mb12">
+      <div style="font-size:0.56rem;letter-spacing:4px;color:var(--text3);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:7px"><span style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.15))"></span>Waktu Sekarang<span style="flex:1;height:1px;background:linear-gradient(90deg,rgba(212,175,55,0.15),transparent)"></span></div>
+      <div class="m-clock-digits"><span id="mch">--</span><span class="blink">:</span><span id="mcm">--</span><span class="blink">:</span><span id="mcs">--</span></div>
+      <div class="m-clock-date" id="mcd">Memuat...</div>
+      <div class="m-clock-pill" id="mchj">— Hijriah —</div>
     </div>
-    <div class="glass m-loc" onclick="getLocation()">
+    <div class="glass m-loc mb12" onclick="getLocation()">
       <div class="loc-pulse">📍</div>
-      <div style="flex:1"><div style="font-size:0.88rem;font-weight:600" id="m-loc-name">Lokasi belum terdeteksi</div><div style="font-size:0.68rem;color:var(--text2)" id="m-loc-sub">Klik untuk mendeteksi</div></div>
-      <button class="loc-btn" id="m-loc-btn">Deteksi</button>
+      <div style="flex:1"><div class="loc-name" id="mln">Lokasi belum terdeteksi</div><div class="loc-sub" id="mls">Klik untuk mendeteksi</div></div>
+      <button class="loc-btn" id="mlb">Deteksi</button>
     </div>
-    <div class="glass m-day-card">
-      <div class="orn"><div class="orn-line"></div><span style="color:rgba(212,175,55,0.4);font-size:0.7rem;letter-spacing:4px">✦ ✦ ✦</span><div class="orn-line r"></div></div>
-      <div style="font-size:0.62rem;letter-spacing:4px;color:var(--text2);text-transform:uppercase">Hari Ke</div>
-      <div style="font-size:5rem;font-weight:900;line-height:1;background:linear-gradient(180deg,var(--gold3),var(--gold2) 40%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 20px rgba(212,175,55,0.5));margin:6px 0" id="m-day-num">—</div>
-      <div style="font-size:0.62rem;letter-spacing:2px;color:var(--text2);text-transform:uppercase">Ramadhan 1447 H</div>
-      <div style="font-size:0.82rem;color:var(--gold);font-weight:500;margin-top:4px" id="m-day-total">19 Feb — 20 Mar 2026</div>
-      <div id="m-before-cdown" style="display:none;margin-top:14px">
-        <div style="font-size:0.62rem;letter-spacing:3px;color:var(--text2);text-transform:uppercase;margin-bottom:9px">Ramadhan Dimulai Dalam</div>
-        <div class="cdown-grid"><div class="cdown-box"><div class="cdown-num" id="m-cd-d">-</div><div class="cdown-lbl">Hari</div></div><div class="cdown-box"><div class="cdown-num" id="m-cd-h">-</div><div class="cdown-lbl">Jam</div></div><div class="cdown-box"><div class="cdown-num" id="m-cd-m">-</div><div class="cdown-lbl">Menit</div></div><div class="cdown-box"><div class="cdown-num" id="m-cd-s">-</div><div class="cdown-lbl">Detik</div></div></div>
-      </div>
-      <div class="prog-wrap" id="m-prog-wrap" style="display:none">
-        <div class="prog-hdr"><span>1 Ramadhan</span><span id="m-prog-pct">0%</span><span>30 Ramadhan</span></div>
-        <div class="prog-track"><div class="prog-fill" id="m-prog-fill" style="width:0%"></div></div>
-        <div class="prog-dots" id="m-prog-dots"></div>
-      </div>
+    <div class="glass m-day mb12">
+      <div class="m-orn"><div class="m-orn-line"></div><span style="color:rgba(212,175,55,0.35);font-size:0.65rem;letter-spacing:4px">✦ ✦ ✦</span><div class="m-orn-line r"></div></div>
+      <div style="font-size:0.56rem;letter-spacing:5px;color:var(--text3);text-transform:uppercase">Hari Ke</div>
+      <div style="font-size:5rem;font-weight:900;line-height:1;background:linear-gradient(170deg,var(--gold3),var(--gold2) 40%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 20px rgba(212,175,55,0.4));margin:5px 0" id="mdn">—</div>
+      <div style="font-size:0.56rem;letter-spacing:2.5px;color:var(--text3);text-transform:uppercase">Ramadhan 1447 H</div>
+      <div style="font-size:0.8rem;color:var(--gold);font-weight:500;margin-top:4px" id="mdt">19 Feb — 20 Mar 2026</div>
+      <div id="mbc" style="display:none;margin-top:13px"><div style="font-size:0.56rem;letter-spacing:3px;color:var(--text3);text-transform:uppercase;margin-bottom:9px">Ramadhan Dimulai Dalam</div><div class="cdown-grid"><div class="cbox"><div class="cbox-num" id="mcd-d">-</div><div class="cbox-lbl">Hari</div></div><div class="cbox"><div class="cbox-num" id="mcd-h">-</div><div class="cbox-lbl">Jam</div></div><div class="cbox"><div class="cbox-num" id="mcd-m">-</div><div class="cbox-lbl">Menit</div></div><div class="cbox"><div class="cbox-num" id="mcd-s">-</div><div class="cbox-lbl">Detik</div></div></div></div>
+      <div class="prog-wrap" id="mpw" style="display:none"><div class="prog-hdr"><span>1 Ram</span><span id="mpp">0%</span><span>30 Ram</span></div><div class="prog-track"><div class="prog-fill" id="mpf" style="width:0%"></div></div><div class="prog-dots" id="mpd"></div></div>
     </div>
-    <div class="glass m-next">
-      <div class="m-next-icon" id="m-next-icon">⏳</div>
-      <div><div style="font-size:0.63rem;color:var(--text2);text-transform:uppercase;letter-spacing:1.5px">Menuju Waktu Berikutnya</div><div style="font-size:0.95rem;font-weight:600;margin:2px 0" id="m-next-name">Menunggu lokasi...</div><div style="font-size:1.5rem;font-weight:700;letter-spacing:2px;color:var(--green3)" id="m-next-timer">--:--:--</div></div>
+    <div class="glass m-next mb12">
+      <div class="m-next-icon" id="mni">⏳</div>
+      <div><div style="font-size:0.58rem;color:var(--text3);text-transform:uppercase;letter-spacing:2px">Menuju Waktu Berikutnya</div><div style="font-size:0.92rem;font-weight:600;margin:2px 0" id="mnn">Menunggu lokasi...</div><div style="font-size:1.5rem;font-weight:800;letter-spacing:3px;color:var(--green3);text-shadow:0 0 12px rgba(46,204,122,0.3)" id="mnt">--:--:--</div></div>
     </div>
-    <div class="sec-hdr" style="margin-top:18px"><div class="sec-line"></div><div class="sec-title">✦ Jadwal Hari Ini ✦</div><div class="sec-line r"></div></div>
-    <div id="m-sched-loading" class="sched-loading"><div class="spinner"></div>Izinkan akses lokasi</div>
-    <div class="m-sched-grid" id="m-sched-grid"></div>
-    <div class="m-footer">
-      <div class="footer-arabic">رَمَضَانُ شَهْرُ الْقُرْآنِ</div>
-      <div class="footer-text">Selamat Menunaikan Ibadah Puasa<br>Ramadhan Mubarak 🌙</div>
-      <div class="footer-copy" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(212,175,55,0.08)">
+    <div class="sec-hdr" style="margin-top:16px"><div class="sec-line"></div><div class="sec-title">✦ Jadwal Hari Ini ✦</div><div class="sec-line r"></div></div>
+    <div id="msg"><div class="sched-loading"><div class="spinner"></div>Izinkan akses lokasi</div></div>
+    <div class="m-sched" id="mscg"></div>
+    <div style="text-align:center;margin-top:32px;padding-top:22px;border-top:1px solid rgba(212,175,55,0.07)">
+      <div class="footer-arabic" style="font-size:1.3rem">رَمَضَانُ شَهْرُ الْقُرْآنِ</div>
+      <div style="font-size:0.68rem;color:var(--text2);line-height:2;margin-top:6px">Selamat Menunaikan Ibadah Puasa<br><span style="color:var(--gold2)">Ramadhan Mubarak 🌙</span></div>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(212,175,55,0.06);text-align:center">
         <div class="footer-by">Dibuat dengan ❤️ oleh</div>
-        <div class="footer-name">Muhammad Adam Abdillah</div>
+        <div class="footer-name" style="font-size:0.88rem">Muhammad Adam Abdillah</div>
         <div class="footer-cr">© 2026 · All Rights Reserved</div>
       </div>
       <div class="footer-api">Aladhan API · OpenStreetMap</div>
     </div>
   </div>
 
-  <!-- M KALENDER -->
-  <div class="m-page" id="m-page-kalender">
+  <div class="m-page" id="mp-kal">
     <div class="sec-hdr" style="margin-top:14px"><div class="sec-line"></div><div class="sec-title">✦ Kalender Ramadhan ✦</div><div class="sec-line r"></div></div>
-    <div class="glass pad" id="m-kal-feb" style="margin-bottom:12px"></div>
-    <div class="glass pad" id="m-kal-mar" style="margin-bottom:12px"></div>
-    <div class="glass pad" id="m-penting"></div>
+    <div class="glass mpad mb12" id="mk-feb"></div>
+    <div class="glass mpad mb12" id="mk-mar"></div>
+    <div class="glass mpad-sm" id="mk-pen"></div>
   </div>
 
-  <!-- M AMALAN -->
-  <div class="m-page" id="m-page-amalan">
+  <div class="m-page" id="mp-aml">
     <div class="sec-hdr" style="margin-top:14px"><div class="sec-line"></div><div class="sec-title">✦ Checklist Amalan ✦</div><div class="sec-line r"></div></div>
-    <div class="glass pad" style="margin-bottom:12px">
-      <div class="am-prog-wrap">
-        <div class="am-prog-info"><span class="am-prog-title">Progress Hari Ini</span><span class="am-prog-pct" id="m-am-pct">0%</span></div>
-        <div class="am-prog-track"><div class="am-prog-fill" id="m-am-fill" style="width:0%"></div></div>
+    <div class="glass m-am-stat mb12">
+      <div style="display:flex;align-items:center;gap:16px">
+        <div class="m-am-circle">
+          <svg width="90" height="90" viewBox="0 0 90 90"><circle cx="45" cy="45" r="38" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="8"/><circle id="m-am-arc" cx="45" cy="45" r="38" fill="none" stroke="url(#amGrad2)" stroke-width="8" stroke-linecap="round" stroke-dasharray="238.76" stroke-dashoffset="238.76" style="transition:stroke-dashoffset 0.8s cubic-bezier(.4,0,.2,1)"/><defs><linearGradient id="amGrad2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1a8c54"/><stop offset="100%" stop-color="#f0d060"/></linearGradient></defs></svg>
+          <div class="m-am-circle-text"><div style="font-size:1.4rem;font-weight:800;color:var(--gold2);line-height:1" id="m-am-pct">0%</div><div style="font-size:0.5rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px">Selesai</div></div>
+        </div>
+        <div style="flex:1"><div style="font-size:0.75rem;color:var(--text2)" id="m-am-msg">Mulai checklist amalan 💪</div><div style="font-size:0.8rem;font-weight:600;color:var(--green3);margin-top:4px" id="m-am-done">0/12</div></div>
       </div>
-      <div style="text-align:center;font-size:0.72rem;color:var(--text2)" id="m-am-status">Mulai checklist amalan harianmu 💪</div>
     </div>
-    <div class="m-amalan-grid" id="m-amalan-grid"></div>
+    <div class="m-am-grid" id="m-am-grid"></div>
   </div>
 
-  <!-- M DOA -->
-  <div class="m-page" id="m-page-doa">
+  <div class="m-page" id="mp-doa">
     <div class="sec-hdr" style="margin-top:14px"><div class="sec-line"></div><div class="sec-title">✦ Doa Ramadhan ✦</div><div class="sec-line r"></div></div>
     <div class="m-doa-list" id="m-doa-list"></div>
   </div>
 
-  <!-- M TASBIH -->
-  <div class="m-page" id="m-page-tasbih">
+  <div class="m-page" id="mp-tsb">
     <div class="sec-hdr" style="margin-top:14px"><div class="sec-line"></div><div class="sec-title">✦ Tasbih Digital ✦</div><div class="sec-line r"></div></div>
-    <div class="glass m-tasbih">
-      <div class="m-dzikir-list" id="m-dzikir-list"></div>
-      <div class="tasbih-arabic" id="m-tsb-arabic">سُبْحَانَ اللَّهِ</div>
-      <div class="tasbih-latin" id="m-tsb-latin">Subhanallah</div>
-      <div class="tasbih-target-info" id="m-tsb-info">0 / 33</div>
-      <div class="tasbih-target-bar"><div class="tasbih-target-fill" id="m-tsb-bar" style="width:0%"></div></div>
-      <div class="tasbih-num" id="m-tsb-count">0</div>
-      <button class="tasbih-btn" onclick="tasbihTap('m')">📿</button>
-      <div class="tsb-controls">
-        <button class="tsb-ctrl" onclick="tasbihReset('m')">Reset</button>
-        <button class="tsb-ctrl" onclick="tasbihUndo('m')">Undo</button>
-      </div>
-      <div class="tsb-total-info">Total sesi: <span id="m-tsb-total" style="color:var(--gold)">0</span></div>
+    <div class="glass m-tsb">
+      <div class="m-dzikir-pills" id="m-dzk"></div>
+      <div class="tsb-arabic" id="m-ta">سُبْحَانَ اللَّهِ</div>
+      <div class="tsb-latin" id="m-tl">Subhanallah</div>
+      <div class="tsb-target-row"><div class="tsb-target-track"><div class="tsb-target-fill" id="m-tb" style="width:0%"></div></div><div class="tsb-target-lbl" id="m-ti">0/33</div></div>
+      <div class="tsb-num" id="m-tc">0</div>
+      <button class="tsb-btn" onclick="tsbTap('m')">📿</button>
+      <div class="tsb-ctrls"><button class="tsb-ctrl" onclick="tsbReset('m')">🔄 Reset</button><button class="tsb-ctrl" onclick="tsbUndo('m')">↩ Undo</button></div>
+      <div class="tsb-total">Total sesi: <span id="m-tt" style="color:var(--gold)">0</span></div>
     </div>
   </div>
 </div>
@@ -526,215 +693,178 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);min
 <div class="notif" id="notif"></div>
 
 <script>
-// ═══ CANVAS ═══
-const C=document.getElementById('bg-canvas'),cx=C.getContext('2d');
+// ── CANVAS ──────────────────────────────────────
+const CV=document.getElementById('bg-canvas'),CX=CV.getContext('2d');
 let W,H,stars=[],meteors=[];
-function resizeC(){W=C.width=window.innerWidth;H=C.height=window.innerHeight;stars=Array.from({length:200},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+0.2,a:Math.random(),da:(Math.random()-.5)*0.007,c:Math.random()>.8}));}
-function animC(){cx.clearRect(0,0,W,H);const g=cx.createRadialGradient(W/2,0,0,W/2,0,H*.6);g.addColorStop(0,'rgba(13,25,60,0.3)');g.addColorStop(1,'transparent');cx.fillStyle=g;cx.fillRect(0,0,W,H);stars.forEach(s=>{s.a+=s.da;if(s.a<.05||s.a>1)s.da*=-1;cx.beginPath();cx.arc(s.x,s.y,s.r,0,Math.PI*2);cx.fillStyle=s.c?`rgba(212,175,55,${s.a*.6})`:`rgba(255,255,255,${s.a*.5})`;cx.fill();});meteors=meteors.filter(m=>m.life>0);meteors.forEach(m=>{m.x+=m.vx;m.y+=m.vy;m.life-=m.decay;const g2=cx.createLinearGradient(m.x,m.y,m.x-m.vx/m.vy*m.len,m.y-m.len);g2.addColorStop(0,`rgba(212,175,55,${m.life*.7})`);g2.addColorStop(1,'transparent');cx.beginPath();cx.moveTo(m.x,m.y);cx.lineTo(m.x-m.vx/m.vy*m.len,m.y-m.len);cx.strokeStyle=g2;cx.lineWidth=1.5;cx.stroke();});requestAnimationFrame(animC);}
+function resizeC(){W=CV.width=window.innerWidth;H=CV.height=window.innerHeight;stars=Array.from({length:220},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+0.15,a:Math.random(),da:(Math.random()-.5)*0.007,gold:Math.random()>.82}));}
+function animC(){
+  CX.clearRect(0,0,W,H);
+  const grd=CX.createRadialGradient(W/2,H*.1,0,W/2,H*.1,H*.65);
+  grd.addColorStop(0,'rgba(14,26,64,0.25)');grd.addColorStop(1,'transparent');
+  CX.fillStyle=grd;CX.fillRect(0,0,W,H);
+  stars.forEach(s=>{s.a+=s.da;if(s.a<.04||s.a>1)s.da*=-1;CX.beginPath();CX.arc(s.x,s.y,s.r,0,Math.PI*2);CX.fillStyle=s.gold?`rgba(212,175,55,${s.a*.55})`:`rgba(240,240,255,${s.a*.45})`;CX.fill();});
+  meteors=meteors.filter(m=>m.life>0);
+  meteors.forEach(m=>{m.x+=m.vx;m.y+=m.vy;m.life-=m.dc;const g2=CX.createLinearGradient(m.x,m.y,m.x-m.vx/m.vy*m.len,m.y-m.len);g2.addColorStop(0,`rgba(212,175,55,${m.life*.65})`);g2.addColorStop(1,'transparent');CX.beginPath();CX.moveTo(m.x,m.y);CX.lineTo(m.x-m.vx/m.vy*m.len,m.y-m.len);CX.strokeStyle=g2;CX.lineWidth=1.4;CX.stroke();});
+  requestAnimationFrame(animC);
+}
 resizeC();animC();window.addEventListener('resize',resizeC);
-setInterval(()=>{if(Math.random()<.3)meteors.push({x:Math.random()*W,y:-20,vx:2+Math.random()*3,vy:3+Math.random()*4,life:1,decay:.014+Math.random()*.01,len:70+Math.random()*60});},2000);
+setInterval(()=>{if(Math.random()<.28)meteors.push({x:Math.random()*W,y:-20,vx:2+Math.random()*3,vy:3+Math.random()*4,life:1,dc:.013+Math.random()*.01,len:70+Math.random()*70});},2200);
 
-// ═══ CONSTANTS ═══
-const RSTART=new Date('2026-02-19T00:00:00'),REND=new Date('2026-03-21T00:00:00');
-const DAYS_ID=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
-const MONTHS_ID=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
-const HIJRI_M=["Muharram","Safar","Rabi'ul Awal","Rabi'ul Akhir","Jumadil Awal","Jumadil Akhir","Rajab","Sya'ban","Ramadhan","Syawal","Dzulqa'dah","Dzulhijjah"];
+// ── DATA ────────────────────────────────────────
+const RS=new Date('2026-02-19T00:00:00'),RE=new Date('2026-03-21T00:00:00');
+const DID=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+const MID=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+const HM=["Muharram","Safar","Rabi'ul Awal","Rabi'ul Akhir","Jumadil Awal","Jumadil Akhir","Rajab","Sya'ban","Ramadhan","Syawal","Dzulqa'dah","Dzulhijjah"];
 const SCHED=[{key:'imsak',name:'Imsak',desc:'Batas akhir sahur',icon:'🌙'},{key:'subuh',name:'Subuh',desc:'Shalat Shubuh',icon:'🌅'},{key:'terbit',name:'Terbit',desc:'Matahari terbit',icon:'☀️'},{key:'dhuha',name:'Dhuha',desc:'Shalat Dhuha',icon:'🌤️'},{key:'dzuhur',name:'Dzuhur',desc:'Shalat Dzuhur',icon:'🕌'},{key:'ashar',name:'Ashar',desc:'Shalat Ashar',icon:'🌇'},{key:'maghrib',name:'Maghrib',desc:'Berbuka Puasa 🍽️',icon:'🌆'},{key:'isya',name:'Isya',desc:'Shalat Isya',icon:'🌃'}];
-const AMALAN_DATA=[{icon:'🌙',name:'Sahur',desc:'Makan sahur sebelum imsak'},{icon:'🕌',name:'Shalat Subuh',desc:'Berjamaah/tepat waktu'},{icon:'📖',name:'Tilawah Al-Quran',desc:'Minimal 1 halaman'},{icon:'🤲',name:'Dzikir Pagi',desc:'Dzikir setelah Subuh'},{icon:'🕌',name:'Shalat Dhuha',desc:'Minimal 2 rakaat'},{icon:'🕌',name:'Shalat Dzuhur',desc:'Tepat waktu'},{icon:'🕌',name:'Shalat Ashar',desc:'Tepat waktu'},{icon:'🍽️',name:'Berbuka Halal',desc:'Dengan kurma/air'},{icon:'🕌',name:'Shalat Maghrib',desc:'Setelah berbuka'},{icon:'🕌',name:'Tarawih',desc:'Shalat Isya & Tarawih'},{icon:'🤲',name:'Dzikir Malam',desc:'Istighfar malam hari'},{icon:'💰',name:'Sedekah',desc:'Berbagi ke sesama'}];
-const DOAS_DATA=[{icon:'🌙',title:'Doa Niat Puasa',arabic:'نَوَيْتُ صَوْمَ غَدٍ عَنْ أَدَاءِ فَرْضِ شَهْرِ رَمَضَانَ هَذِهِ السَّنَةِ لِلَّهِ تَعَالَى',latin:"Nawaitu shauma ghadin 'an adaa'i fardhi syahri Ramadhana haadzihi as-sanati lillaahi ta'aalaa.",terjemah:"Aku berniat puasa esok hari untuk menunaikan kewajiban puasa Ramadhan tahun ini karena Allah Ta'ala."},{icon:'🍽️',title:'Doa Berbuka Puasa',arabic:'اللَّهُمَّ لَكَ صُمْتُ وَبِكَ آمَنْتُ وَعَلَيْكَ تَوَكَّلْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ',latin:"Allaahumma laka shumtu wa bika aamantu wa 'alaika tawakkaltu wa 'alaa rizqika afthartu.",terjemah:'Ya Allah, karena-Mu aku berpuasa, kepada-Mu aku beriman, kepada-Mu aku bertawakal, dan dengan rezeki-Mu aku berbuka.'},{icon:'🌟',title:'Doa Lailatul Qadar',arabic:'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',latin:"Allaahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'annii.",terjemah:'Ya Allah, sesungguhnya Engkau Maha Pemaaf dan mencintai maaf, maka maafkanlah aku.'},{icon:'🤲',title:'Doa Setelah Tarawih',arabic:'سُبْحَانَ الْمَلِكِ الْقُدُّوسِ',latin:'Subhaanal malikil qudduus.',terjemah:'Maha Suci Engkau Raja Yang Maha Suci.'},{icon:'☀️',title:'Doa Sahur',arabic:'اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ',latin:"Allaahumma baarik lanaa fiimaa razaqtanaa waqinaa 'adzaaban naar.",terjemah:'Ya Allah, berkahilah kami dalam rezeki yang Engkau berikan kepada kami dan jauhkanlah kami dari siksa neraka.'},{icon:'💝',title:'Doa Mohon Ampunan',arabic:'رَبَّنَا اغْفِرْ لَنَا ذُنُوبَنَا وَإِسْرَافَنَا فِي أَمْرِنَا وَثَبِّتْ أَقْدَامَنَا وَانْصُرْنَا',latin:"Rabbanaaghfir lanaa dzunuubanaa wa israafanaa fii amrinaa wa tsabbit aqdaamanaa wansurnaa.",terjemah:'Ya Tuhan kami, ampunilah dosa-dosa kami, tindakan kami yang berlebihan, tetapkanlah pendirian kami dan tolonglah kami.'}];
-const DZIKIRLIST=[{arabic:'سُبْحَانَ اللَّهِ',latin:'Subhanallah',target:33},{arabic:'الْحَمْدُ لِلَّهِ',latin:'Alhamdulillah',target:33},{arabic:'اللَّهُ أَكْبَرُ',latin:'Allahu Akbar',target:34},{arabic:'لَا إِلٰهَ إِلَّا اللَّهُ',latin:'Laa ilaaha illallah',target:100},{arabic:'أَسْتَغْفِرُ اللَّهَ',latin:'Astaghfirullah',target:100}];
+const AMALAN=[{icon:'🌙',name:'Sahur',desc:'Makan sahur sebelum imsak'},{icon:'🕌',name:'Shalat Subuh',desc:'Berjamaah/tepat waktu'},{icon:'📖',name:'Tilawah Al-Quran',desc:'Minimal 1 halaman'},{icon:'🤲',name:'Dzikir Pagi',desc:'Dzikir setelah Subuh'},{icon:'🕌',name:'Shalat Dhuha',desc:'Minimal 2 rakaat'},{icon:'🕌',name:'Shalat Dzuhur',desc:'Tepat waktu'},{icon:'🕌',name:'Shalat Ashar',desc:'Tepat waktu'},{icon:'🍽️',name:'Berbuka Halal',desc:'Dengan kurma/air'},{icon:'🕌',name:'Shalat Maghrib',desc:'Setelah berbuka'},{icon:'🕌',name:'Tarawih',desc:'Isya & Tarawih'},{icon:'🤲',name:'Dzikir Malam',desc:'Istighfar malam hari'},{icon:'💰',name:'Sedekah',desc:'Berbagi ke sesama'}];
+const DOAS=[{icon:'🌙',title:'Doa Niat Puasa',arabic:'نَوَيْتُ صَوْمَ غَدٍ عَنْ أَدَاءِ فَرْضِ شَهْرِ رَمَضَانَ هَذِهِ السَّنَةِ لِلَّهِ تَعَالَى',latin:"Nawaitu shauma ghadin 'an adaa'i fardhi syahri Ramadhana haadzihi as-sanati lillaahi ta'aalaa.",terjemah:"Aku berniat puasa esok hari untuk menunaikan kewajiban puasa Ramadhan tahun ini karena Allah Ta'ala."},{icon:'🍽️',title:'Doa Berbuka Puasa',arabic:'اللَّهُمَّ لَكَ صُمْتُ وَبِكَ آمَنْتُ وَعَلَيْكَ تَوَكَّلْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ',latin:"Allaahumma laka shumtu wa bika aamantu wa 'alaika tawakkaltu wa 'alaa rizqika afthartu.",terjemah:'Ya Allah, karena-Mu aku berpuasa, kepada-Mu aku beriman, kepada-Mu aku bertawakal, dan dengan rezeki-Mu aku berbuka.'},{icon:'🌟',title:'Doa Lailatul Qadar',arabic:'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي',latin:"Allaahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'annii.",terjemah:'Ya Allah, sesungguhnya Engkau Maha Pemaaf dan mencintai maaf, maka maafkanlah aku.'},{icon:'🤲',title:'Doa Setelah Tarawih',arabic:'سُبْحَانَ الْمَلِكِ الْقُدُّوسِ',latin:'Subhaanal malikil qudduus.',terjemah:'Maha Suci Engkau Raja Yang Maha Suci.'},{icon:'☀️',title:'Doa Sahur',arabic:'اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ',latin:"Allaahumma baarik lanaa fiimaa razaqtanaa waqinaa 'adzaaban naar.",terjemah:'Ya Allah, berkahilah kami dalam rezeki yang Engkau berikan kepada kami dan jauhkanlah kami dari siksa neraka.'},{icon:'💝',title:'Doa Mohon Ampunan',arabic:'رَبَّنَا اغْفِرْ لَنَا ذُنُوبَنَا وَإِسْرَافَنَا فِي أَمْرِنَا وَثَبِّتْ أَقْدَامَنَا وَانْصُرْنَا',latin:"Rabbanaaghfir lanaa dzunuubanaa wa israafanaa fii amrinaa wa tsabbit aqdaamanaa wansurnaa.",terjemah:'Ya Tuhan kami, ampunilah dosa-dosa kami dan tindakan kami yang berlebihan, tetapkanlah pendirian kami dan tolonglah kami.'}];
+const DZIKIR=[{arabic:'سُبْحَانَ اللَّهِ',latin:'Subhanallah',target:33},{arabic:'الْحَمْدُ لِلَّهِ',latin:'Alhamdulillah',target:33},{arabic:'اللَّهُ أَكْبَرُ',latin:'Allahu Akbar',target:34},{arabic:'لَا إِلٰهَ إِلَّا اللَّهُ',latin:'Laa ilaaha illallah',target:100},{arabic:'أَسْتَغْفِرُ اللَّهَ',latin:'Astaghfirullah',target:100}];
 const PENTING=[{icon:'🌙',label:'1 Ramadhan 1447H',val:'19 Februari 2026'},{icon:'✨',label:'Nuzulul Quran (17 Ramadhan)',val:'7 Maret 2026'},{icon:'🌟',label:'Lailatul Qadar (21 Ramadhan)',val:'11 Maret 2026'},{icon:'🌟',label:'Lailatul Qadar (23 Ramadhan)',val:'13 Maret 2026'},{icon:'🌟',label:'Lailatul Qadar (27 Ramadhan)',val:'17 Maret 2026'},{icon:'🎉',label:'1 Syawal — Idul Fitri',val:'21 Maret 2026'}];
 
 const pad=n=>String(n).padStart(2,'0');
-let todayPrayer=null;
-let tsbState={d:{idx:0,count:0,total:0},m:{idx:0,count:0,total:0}};
-let amalanState=Array(AMALAN_DATA.length).fill(false);
+let prayer=null,amlState=Array(12).fill(false);
+let tsb={d:{idx:0,count:0,total:0},m:{idx:0,count:0,total:0}};
 
-// ═══ HIJRI ═══
-function gregorianToJD(y,m,d){return Math.floor((1461*(y+4800+Math.floor((m-14)/12)))/4)+Math.floor((367*(m-2-12*Math.floor((m-14)/12)))/12)-Math.floor((3*Math.floor((y+4900+Math.floor((m-14)/12))/100))/4)+d-32075;}
-function toHijri(date){const JD=gregorianToJD(date.getFullYear(),date.getMonth()+1,date.getDate()),l=JD-1948440+10632,n=Math.floor((l-1)/10631),l2=l-10631*n+354,j=Math.floor((10985-l2)/5316)*Math.floor((50*l2)/17719)+Math.floor(l2/5670)*Math.floor((43*l2)/15238),l3=l2-Math.floor((30-j)/15)*Math.floor((17719*j)/50)-Math.floor(j/16)*Math.floor((15238*j)/43)+29,month=Math.floor((24*l3)/709),day=l3-Math.floor((709*month)/24),year=30*n+j-30;return{day,month,year,monthName:HIJRI_M[month-1]||''};}
+// ── HIJRI ──
+function jd(y,m,d){return Math.floor((1461*(y+4800+Math.floor((m-14)/12)))/4)+Math.floor((367*(m-2-12*Math.floor((m-14)/12)))/12)-Math.floor((3*Math.floor((y+4900+Math.floor((m-14)/12))/100))/4)+d-32075;}
+function hijri(date){const J=jd(date.getFullYear(),date.getMonth()+1,date.getDate()),l=J-1948440+10632,n=Math.floor((l-1)/10631),l2=l-10631*n+354,j=Math.floor((10985-l2)/5316)*Math.floor((50*l2)/17719)+Math.floor(l2/5670)*Math.floor((43*l2)/15238),l3=l2-Math.floor((30-j)/15)*Math.floor((17719*j)/50)-Math.floor(j/16)*Math.floor((15238*j)/43)+29,mo=Math.floor((24*l3)/709),dy=l3-Math.floor((709*mo)/24),yr=30*n+j-30;return{day:dy,month:mo,year:yr,monthName:HM[mo-1]||''};}
 
-// ═══ TICK ═══
-function setEl(ids,val){ids.forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=val;});}
+// ── TICK ──
+function sel(id,v){const e=document.getElementById(id);if(e)e.textContent=v;}
 function tick(){
-  const now=new Date();
-  setEl(['d-ch','m-ch'],pad(now.getHours()));
-  setEl(['d-cm','m-cm'],pad(now.getMinutes()));
-  setEl(['d-cs','m-cs'],pad(now.getSeconds()));
-  const dateStr=`${DAYS_ID[now.getDay()]}, ${now.getDate()} ${MONTHS_ID[now.getMonth()]} ${now.getFullYear()}`;
-  setEl(['d-clock-date','m-clock-date'],dateStr);
-  const inR=now>=RSTART&&now<REND;
-  const hijriStr=inR?`${Math.floor((now-RSTART)/86400000)+1} Ramadhan 1447 H`:(()=>{const h=toHijri(now);return `${h.day} ${h.monthName} ${h.year} H`;})();
-  setEl(['d-clock-hijri','m-clock-hijri'],hijriStr);
-  const before=now<RSTART;
-  if(inR){
-    const dn=Math.floor((now-RSTART)/86400000)+1;
-    setEl(['d-day-num','m-day-num'],dn);
-    const sisa=30-dn,tot=sisa>0?`${sisa} hari menuju Idul Fitri 🌙`:'Selamat Idul Fitri! 🌙';
-    setEl(['d-day-total','m-day-total'],tot);
-    ['d','m'].forEach(p=>{
-      const pw=document.getElementById(`${p}-prog-wrap`),bc=document.getElementById(`${p}-before-cdown`);
+  const now=new Date(),inR=now>=RS&&now<RE,before=now<RS;
+  // Clock
+  ['d','m'].forEach(p=>{
+    sel(p+'ch',pad(now.getHours()));sel(p+'cm',pad(now.getMinutes()));sel(p+'cs',pad(now.getSeconds()));
+    sel(p+'cd',`${DID[now.getDay()]}, ${now.getDate()} ${MID[now.getMonth()]} ${now.getFullYear()}`);
+    sel(p+'chj',inR?`${Math.floor((now-RS)/86400000)+1} Ramadhan 1447 H`:(()=>{const h=hijri(now);return `${h.day} ${h.monthName} ${h.year} H`;})());
+    // Day
+    if(inR){
+      const dn=Math.floor((now-RS)/86400000)+1;
+      sel(p+'dn',dn);sel(p+'dt',`${30-dn>0?30-dn+' hari menuju Idul Fitri 🌙':'Selamat Idul Fitri! 🌙'}`);
+      const pw=document.getElementById(p+'pw'),bc=document.getElementById(p+'bc');
       if(pw)pw.style.display='block';if(bc)bc.style.display='none';
       const pct=((dn-1)/29*100).toFixed(1);
-      const pf=document.getElementById(`${p}-prog-fill`);if(pf)pf.style.width=pct+'%';
-      const pp=document.getElementById(`${p}-prog-pct`);if(pp)pp.textContent=pct+'%';
-      const dots=document.getElementById(`${p}-prog-dots`);
-      if(dots){if(!dots.children.length){for(let i=0;i<30;i++)dots.innerHTML+=`<div class="prog-dot${i<dn?' passed':''}"></div>`;}else{[...dots.children].forEach((d,i)=>{d.className='prog-dot'+(i<dn?' passed':'');});}}
-    });
-  } else if(before){
-    setEl(['d-day-num','m-day-num'],'—');
-    ['d','m'].forEach(p=>{const pw=document.getElementById(`${p}-prog-wrap`),bc=document.getElementById(`${p}-before-cdown`);if(pw)pw.style.display='none';if(bc)bc.style.display='block';});
-    const diff=RSTART-now,dd=Math.floor(diff/86400000),dh=Math.floor((diff%86400000)/3600000),dm=Math.floor((diff%3600000)/60000),ds=Math.floor((diff%60000)/1000);
-    ['d','m'].forEach(p=>{setEl([`${p}-cd-d`],dd);setEl([`${p}-cd-h`],pad(dh));setEl([`${p}-cd-m`],pad(dm));setEl([`${p}-cd-s`],pad(ds));});
-  }
-  if(todayPrayer)updateNext(now);
+      const pf=document.getElementById(p+'pf'),pp=document.getElementById(p+'pp');
+      if(pf)pf.style.width=pct+'%';if(pp)pp.textContent=pct+'%';
+      const dots=document.getElementById(p+'pd');
+      if(dots){if(!dots.children.length){for(let i=0;i<30;i++)dots.innerHTML+=`<div class="prog-dot${i<dn?' passed':''}"></div>`;}else{[...dots.children].forEach((d,i)=>d.className='prog-dot'+(i<dn?' passed':''));}}
+    } else if(before){
+      sel(p+'dn','—');const pw=document.getElementById(p+'pw'),bc=document.getElementById(p+'bc');if(pw)pw.style.display='none';if(bc)bc.style.display='block';
+      const df=RS-now;sel(`${p}cd-d`,Math.floor(df/86400000));sel(`${p}cd-h`,pad(Math.floor((df%86400000)/3600000)));sel(`${p}cd-m`,pad(Math.floor((df%3600000)/60000)));sel(`${p}cd-s`,pad(Math.floor((df%60000)/1000)));
+    } else sel(p+'dn','✓');
+  });
+  if(prayer)updateNext(now);
 }
 setInterval(tick,1000);tick();
 
-function timeToMin(s){if(!s||s==='--:--'||s==='99:99')return 9999;const[h,m]=s.split(':').map(Number);return h*60+m;}
+// ── NEXT EVENT ──
+function t2m(s){if(!s||s.includes('99')||s==='--:--')return 9999;const[h,m]=s.split(':').map(Number);return h*60+m;}
 function updateNext(now){
-  const cur=now.getHours()*60+now.getMinutes();
-  const mins=SCHED.map(s=>timeToMin(todayPrayer[s.key]||'99:99'));
-  let ai=-1,ni=-1;
-  mins.forEach((m,i)=>{if(cur>=m&&m!==9999)ai=i;});
-  ni=ai+1<SCHED.length?ai+1:-1;
-  // update schedule items
+  const cur=now.getHours()*60+now.getMinutes(),mins=SCHED.map(s=>t2m(prayer[s.key]));
+  let ai=-1,ni=-1;mins.forEach((m,i)=>{if(cur>=m&&m!==9999)ai=i;});ni=ai+1<SCHED.length?ai+1:-1;
   ['d','m'].forEach(p=>{
-    SCHED.forEach((_,i)=>{
-      const el=document.getElementById(`${p}-si-${i}`),badge=document.getElementById(`${p}-badge-${i}`);
-      if(!el)return;el.classList.remove('active','next');badge.className='si-badge';
-      if(i===ai){el.classList.add('active');badge.className='si-badge badge-now';badge.textContent='Sekarang';}
-      else if(i===ni){el.classList.add('next');badge.className='si-badge badge-next';badge.textContent='Berikutnya';}
-    });
+    SCHED.forEach((_,i)=>{const el=document.getElementById(`${p}si${i}`),bg=document.getElementById(`${p}sb${i}`);if(!el)return;el.classList.remove('active','next');bg.className='si-badge';if(i===ai){el.classList.add('active');bg.className='si-badge badge-now';bg.textContent='Sekarang';}else if(i===ni){el.classList.add('next');bg.className='si-badge badge-next';bg.textContent='Berikutnya';}});
   });
-  if(ni>=0&&mins[ni]!==9999){
-    const diffSec=(mins[ni]-cur)*60-now.getSeconds();
-    if(diffSec<0||diffSec>86400){setEl(['d-next-name','m-next-name'],'Menghitung...');setEl(['d-next-timer','m-next-timer'],'--:--:--');return;}
-    const hh=Math.floor(diffSec/3600),mm=Math.floor((diffSec%3600)/60),ss=diffSec%60;
-    setEl(['d-next-icon','m-next-icon'],SCHED[ni].icon);
-    setEl(['d-next-name','m-next-name'],SCHED[ni].name);
-    setEl(['d-next-timer','m-next-timer'],`${pad(hh)}:${pad(mm)}:${pad(ss)}`);
-  } else {setEl(['d-next-name','m-next-name'],'Semua waktu lewat');setEl(['d-next-timer','m-next-timer'],'Alhamdulillah ✓');}
+  if(ni>=0&&mins[ni]!==9999){const df=(mins[ni]-cur)*60-now.getSeconds();if(df<0||df>86400){['d','m'].forEach(p=>{sel(p+'nn','Menghitung...');sel(p+'nt','--:--:--');});return;}const hh=Math.floor(df/3600),mm=Math.floor((df%3600)/60),ss=df%60;['d','m'].forEach(p=>{sel(p+'ni',SCHED[ni].icon);sel(p+'nn',SCHED[ni].name);sel(p+'nt',`${pad(hh)}:${pad(mm)}:${pad(ss)}`);});}
+  else{['d','m'].forEach(p=>{sel(p+'nn','Semua waktu lewat');sel(p+'nt','Alhamdulillah ✓');});}
 }
 
-// ═══ LOCATION ═══
+// ── LOCATION ──
 function getLocation(){
-  if(!navigator.geolocation){['d-loc-name','m-loc-name'].forEach(id=>setEl([id],'Tidak Didukung'));return;}
-  ['d-loc-name','m-loc-name'].forEach(id=>setEl([id],'Mendeteksi...'));
-  ['d-loc-btn','m-loc-btn'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='...';});
+  if(!navigator.geolocation)return;
+  ['dln','mln'].forEach(id=>sel(id,'Mendeteksi...'));
+  ['dlb','mlb'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='...';});
   navigator.geolocation.getCurrentPosition(p=>{
     const lat=p.coords.latitude,lon=p.coords.longitude;
-    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`).then(r=>r.json()).then(d=>{const a=d.address,city=a.city||a.town||a.village||a.county||'Lokasi Anda',region=a.state||a.country||'';['d-loc-name','m-loc-name'].forEach(id=>setEl([id],city));['d-loc-sub','m-loc-sub'].forEach(id=>setEl([id],region));['d-loc-btn','m-loc-btn'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='✓';});}).catch(()=>{});
+    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`).then(r=>r.json()).then(d=>{const a=d.address,c=a.city||a.town||a.village||a.county||'Lokasi Anda';['dln','mln'].forEach(id=>sel(id,c));['dls','mls'].forEach(id=>sel(id,a.state||a.country||''));['dlb','mlb'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='✓';});}).catch(()=>{});
     fetchPrayer(lat,lon);
-  },()=>{['d-loc-name','m-loc-name'].forEach(id=>setEl([id],'Gagal'));['d-loc-sub','m-loc-sub'].forEach(id=>setEl([id],'Menggunakan Jakarta'));['d-loc-btn','m-loc-btn'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='Retry';});fetchPrayer(-6.2088,106.8456);},{enableHighAccuracy:true,timeout:10000});
+  },()=>{['dln','mln'].forEach(id=>sel(id,'Gagal'));['dls','mls'].forEach(id=>sel(id,'Menggunakan Jakarta'));['dlb','mlb'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='Retry';});fetchPrayer(-6.2088,106.8456);},{enableHighAccuracy:true,timeout:10000});
 }
-
 async function fetchPrayer(lat,lon){
   const now=new Date();
-  try{
-    const url=`https://api.aladhan.com/v1/timings/${now.getDate()}-${now.getMonth()+1}-${now.getFullYear()}?latitude=${lat}&longitude=${lon}&method=20&school=1`;
-    const res=await fetch(url);const data=await res.json();
-    if(data.code===200){
-      const t=data.data.timings;
-      const sp=t.Sunrise.split(':').map(Number),dhMin=sp[0]*60+sp[1]+20;
-      const dhuhaStr=pad(Math.floor(dhMin/60))+':'+pad(dhMin%60);
-      todayPrayer={imsak:t.Imsak,subuh:t.Fajr,terbit:t.Sunrise,dhuha:(t.Dhuha&&t.Dhuha!=='--:--'?t.Dhuha:dhuhaStr),dzuhur:t.Dhuhr,ashar:t.Asr,maghrib:t.Maghrib,isya:t.Isha};
-      renderSched();tick();
-    }
-  }catch(e){['d-sched-loading','m-sched-loading'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML='<div style="color:#ff6b6b">⚠️ Gagal memuat jadwal.</div>';});}
+  try{const res=await fetch(`https://api.aladhan.com/v1/timings/${now.getDate()}-${now.getMonth()+1}-${now.getFullYear()}?latitude=${lat}&longitude=${lon}&method=20&school=1`);const data=await res.json();
+    if(data.code===200){const t=data.data.timings,sp=t.Sunrise.split(':').map(Number),dhMin=sp[0]*60+sp[1]+20;prayer={imsak:t.Imsak,subuh:t.Fajr,terbit:t.Sunrise,dhuha:(t.Dhuha&&!t.Dhuha.includes('--')?t.Dhuha:pad(Math.floor(dhMin/60))+':'+pad(dhMin%60)),dzuhur:t.Dhuhr,ashar:t.Asr,maghrib:t.Maghrib,isya:t.Isha};renderSched();tick();}
+  }catch(e){['dsg','mscg'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML='<div style="color:#ff6b6b;text-align:center;padding:20px">⚠️ Gagal memuat jadwal.</div>';});['msg'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='none';});}
 }
-
 function renderSched(){
+  document.getElementById('msg').style.display='none';
   ['d','m'].forEach(p=>{
-    const loading=document.getElementById(`${p}-sched-loading`);if(loading)loading.style.display='none';
-    const grid=document.getElementById(`${p}-sched-grid`);if(!grid)return;
-    grid.innerHTML=SCHED.map((s,i)=>`<div class="si" id="${p}-si-${i}"><div class="si-icon">${s.icon}</div><div class="si-info"><div class="si-name">${s.name}</div><div class="si-desc">${s.desc}</div></div><div class="si-right"><div class="si-time">${todayPrayer[s.key]||'--:--'}</div><span class="si-badge" id="${p}-badge-${i}"></span></div></div>`).join('');
+    const g=document.getElementById(p==='d'?'dsg':'mscg');if(!g)return;
+    g.innerHTML=SCHED.map((s,i)=>`<div class="si" id="${p}si${i}"><div class="si-icon">${s.icon}</div><div class="si-info"><div class="si-name">${s.name}</div><div class="si-desc">${s.desc}</div></div><div class="si-right"><div class="si-time">${prayer[s.key]||'--:--'}</div><span class="si-badge" id="${p}sb${i}"></span></div></div>`).join('');
+    if(p==='d'){const ld=document.getElementById('dsg');if(ld){const sl=ld.querySelector('.sched-loading');if(sl)sl.remove();}}
   });
 }
 
-// ═══ PAGES ═══
-function dGoPage(id,btn){document.querySelectorAll('.d-page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.d-nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('d-page-'+id).classList.add('active');btn.classList.add('active');if(id==='kalender')renderKalender();}
-function mGoPage(id,btn){document.querySelectorAll('.m-page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.m-nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('m-page-'+id).classList.add('active');btn.classList.add('active');if(id==='kalender')renderKalender();}
+// ── PAGES ──
+function dPage(id,btn){document.querySelectorAll('.d-page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.d-nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('dp-'+id).classList.add('active');btn.classList.add('active');if(id==='kal')renderKal();}
+function mPage(id,btn){document.querySelectorAll('.m-page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.m-nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('mp-'+id).classList.add('active');btn.classList.add('active');if(id==='kal')renderKal();}
 
-// ═══ KALENDER ═══
-function buildKal(y,m,mName){
+// ── KALENDER ──
+function buildMonth(y,m,title){
   const now=new Date(),first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();
-  let html=`<div style="font-size:0.82rem;font-weight:600;color:var(--gold2);text-align:center;margin-bottom:10px;letter-spacing:2px">${mName}</div><div class="kal-grid">`;
-  ['Ahd','Sen','Sel','Rab','Kam','Jum','Sab'].forEach(d=>{html+=`<div class="kal-hdr">${d}</div>`;});
-  for(let i=0;i<first;i++)html+='<div></div>';
-  for(let d=1;d<=days;d++){
-    const date=new Date(y,m,d),isRam=date>=RSTART&&date<REND,isToday=date.toDateString()===now.toDateString(),isFri=date.getDay()===5;
-    const ramDay=isRam?Math.floor((date-RSTART)/86400000)+1:'';
-    const hj=toHijri(date);
-    let cls='kal-cell ';if(isToday)cls+='today';else if(isRam)cls+='ramadan';else cls+='normal';if(isFri&&!isToday)cls+=' friday';
-    html+=`<div class="${cls}"><span>${d}</span><span class="kal-hijri">${ramDay?ramDay+'R':hj.day}</span></div>`;
-  }
-  html+='</div>';
-  return html;
+  let h=`<div class="kal-month-title">${title}</div><div class="kal-grid">`;
+  ['Ahd','Sen','Sel','Rab','Kam','Jum','Sab'].forEach(d=>h+=`<div class="kal-hdr">${d}</div>`);
+  for(let i=0;i<first;i++)h+='<div></div>';
+  for(let d=1;d<=days;d++){const date=new Date(y,m,d),isR=date>=RS&&date<RE,isT=date.toDateString()===now.toDateString(),isF=date.getDay()===5,rDay=isR?Math.floor((date-RS)/86400000)+1:'',hj=hijri(date);let cls='kal-cell ';if(isT)cls+='today';else if(isR)cls+='ramadan';else cls+='normal';if(isF&&!isT)cls+=' friday';h+=`<div class="${cls}"><span>${d}</span><span class="kal-sub">${rDay?rDay+'R':hj.day}</span></div>`;}
+  h+='</div>';return h;
 }
 function buildPenting(){
-  return '<div style="font-size:0.72rem;color:var(--text2);margin-bottom:10px;text-align:center;letter-spacing:1px">TANGGAL PENTING</div>'+PENTING.map(p=>`<div style="display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.1);margin-bottom:7px"><span style="font-size:1rem">${p.icon}</span><div style="flex:1;font-size:0.75rem;font-weight:500">${p.label}</div><div style="font-size:0.72rem;color:var(--gold);font-weight:600;white-space:nowrap">${p.val}</div></div>`).join('');
+  return `<div style="font-size:0.65rem;color:var(--text3);text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px">Tanggal Penting</div>`+PENTING.map(p=>`<div class="penting-item"><div class="penting-icon">${p.icon}</div><div class="penting-label">${p.label}</div><div class="penting-val">${p.val}</div></div>`).join('');
 }
-function renderKalender(){
-  const feb=buildKal(2026,1,'Februari 2026'),mar=buildKal(2026,2,'Maret 2026'),pen=buildPenting();
-  ['d-kal-feb','m-kal-feb'].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=feb;});
-  ['d-kal-mar','m-kal-mar'].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=mar;});
-  ['d-penting','m-penting'].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=pen;});
+function buildLegend(){return`<div class="kal-legend"><div class="kal-leg"><div class="kal-leg-dot" style="background:rgba(212,175,55,0.25);border:1px solid rgba(212,175,55,0.4)"></div>Ramadhan</div><div class="kal-leg"><div class="kal-leg-dot" style="background:linear-gradient(135deg,rgba(212,175,55,0.3),rgba(212,175,55,0.1))"></div>Hari Ini</div><div class="kal-leg"><div class="kal-leg-dot" style="background:rgba(122,186,255,0.25);border:1px solid rgba(122,186,255,0.4)"></div>Jumat</div></div>`;}
+function renderKal(){
+  const feb=buildMonth(2026,1,'Februari 2026')+buildLegend(),mar=buildMonth(2026,2,'Maret 2026')+buildLegend(),pen=buildPenting();
+  [['dk-feb','mk-feb',feb],['dk-mar','mk-mar',mar],['dk-pen','mk-pen',pen]].forEach(([di,mi,html])=>{const de=document.getElementById(di),me=document.getElementById(mi);if(de)de.innerHTML=html;if(me)me.innerHTML=html;});
 }
-renderKalender();
+renderKal();
 
-// ═══ AMALAN ═══
+// ── AMALAN ──
+const AMSGS=['Mulai checklist amalan harianmu 💪','Terus semangat! 🌟','Bagus sekali! ✨','Hampir selesai! 🔥','MasyaAllah! Semua selesai! 🎉'];
 function renderAmalan(){
-  ['d','m'].forEach(p=>{
-    const g=document.getElementById(`${p}-amalan-grid`);if(!g)return;
-    g.innerHTML=AMALAN_DATA.map((a,i)=>`<div class="am-card${amalanState[i]?' checked':''}" id="${p}-am-${i}" onclick="toggleAmalan(${i})"><div class="am-icon">${a.icon}</div><div style="flex:1"><div class="am-name">${a.name}</div><div class="am-desc">${a.desc}</div></div><div class="am-check" id="${p}-amchk-${i}">${amalanState[i]?'✓':''}</div></div>`).join('');
-  });updateAmalanProg();
+  const done=amlState.filter(Boolean).length,pct=Math.round(done/12*100);
+  const circ=326.73,mcirc=238.76;
+  const darc=document.getElementById('d-am-arc'),marc=document.getElementById('m-am-arc');
+  if(darc)darc.style.strokeDashoffset=circ-(circ*pct/100);
+  if(marc)marc.style.strokeDashoffset=mcirc-(mcirc*pct/100);
+  const msg=AMSGS[pct===100?4:pct>75?3:pct>50?2:pct>20?1:0]+` (${done}/12)`;
+  ['d-am-pct','m-am-pct'].forEach(id=>sel(id,pct+'%'));
+  ['d-am-msg','m-am-msg'].forEach(id=>sel(id,msg));
+  ['d-am-done','m-am-done'].forEach(id=>sel(id,`${done}/12`));
+  const db=document.getElementById('d-am-bar');if(db)db.style.width=pct+'%';
+  const amHtml=AMALAN.map((a,i)=>`<div class="am-card${amlState[i]?' checked':''}" onclick="togAml(${i})"><div class="am-icon">${a.icon}</div><div style="flex:1"><div class="am-name">${a.name}</div><div class="am-desc">${a.desc}</div></div><div class="am-check">${amlState[i]?'✓':''}</div></div>`).join('');
+  ['d-am-grid','m-am-grid'].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=amHtml;});
 }
-function toggleAmalan(i){amalanState[i]=!amalanState[i];renderAmalan();if(amalanState[i])showNotif('Amalan dicatat!');}
-function updateAmalanProg(){
-  const done=amalanState.filter(Boolean).length,total=AMALAN_DATA.length,pct=Math.round(done/total*100);
-  ['d','m'].forEach(p=>{const f=document.getElementById(`${p}-am-fill`),pp=document.getElementById(`${p}-am-pct`),st=document.getElementById(`${p}-am-status`);if(f)f.style.width=pct+'%';if(pp)pp.textContent=pct+'%';const msgs=['Mulai checklist amalan harianmu 💪','Terus semangat! 🌟','Bagus sekali! ✨','Hampir selesai! 🔥','Luar biasa! Semua amalan selesai! 🎉'];const idx=pct===100?4:pct>75?3:pct>50?2:pct>20?1:0;if(st)st.textContent=msgs[idx]+` (${done}/${total})`;});
-}
+function togAml(i){amlState[i]=!amlState[i];renderAmalan();if(amlState[i])showNotif('✅ Amalan dicatat!');}
 renderAmalan();
 
-// ═══ DOA ═══
+// ── DOA ──
 function renderDoa(){
-  const html=DOAS_DATA.map((d,i)=>`<div class="doa-card" id="${'X'}-doa-${i}"><div class="doa-header" onclick="toggleDoa(this)"><div class="doa-icon">${d.icon}</div><div class="doa-title">${d.title}</div><span class="doa-arrow">▼</span></div><div class="doa-body"><div class="doa-arabic">${d.arabic}</div><div class="doa-latin">${d.latin}</div><div class="doa-terjemah">📝 ${d.terjemah}</div></div></div>`).join('');
-  ['d-doa-list','m-doa-list'].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=html.replaceAll('X-doa',id+'-doa');});
+  const html=DOAS.map((d,i)=>`<div class="doa-card"><div class="doa-header" onclick="this.parentElement.classList.toggle('open')"><div class="doa-icon-wrap">${d.icon}</div><div class="doa-title-text">${d.title}</div><span class="doa-arrow">▼</span></div><div class="doa-body"><div class="doa-arabic">${d.arabic}</div><div class="doa-latin">${d.latin}</div><div class="doa-terjemah">📝 ${d.terjemah}</div></div></div>`).join('');
+  ['d-doa-list','m-doa-list'].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=html;});
 }
-function toggleDoa(header){header.parentElement.classList.toggle('open');}
 renderDoa();
 
-// ═══ TASBIH ═══
-function renderDzikirList(){
-  ['d','m'].forEach(p=>{
-    const isDesktop=p==='d';
-    const container=document.getElementById(`${p}-dzikir-list`);if(!container)return;
-    if(isDesktop){
-      container.innerHTML=DZIKIRLIST.map((d,i)=>`<button class="dzikir-btn${i===0?' active':''}" onclick="setDzikir('${p}',${i})"><span class="dz-arabic">${d.arabic}</span><span style="flex:1">${d.latin}</span><span style="font-size:0.65rem;color:var(--text2)">${d.target}×</span></button>`).join('');
-    } else {
-      container.innerHTML=DZIKIRLIST.map((d,i)=>`<button class="m-dzikir-btn${i===0?' active':''}" onclick="setDzikir('m',${i})">${d.latin}</button>`).join('');
-    }
-  });
+// ── TASBIH ──
+function renderTsbList(){
+  const dEl=document.getElementById('d-dzk');
+  if(dEl)dEl.innerHTML=DZIKIR.map((d,i)=>`<div class="tsb-item${i===0?' active':''}" onclick="setDzk('d',${i})"><div class="tsb-item-info"><div class="tsb-item-latin">${d.latin}</div><div class="tsb-item-target">${d.target}× per set</div></div><div class="tsb-item-arabic">${d.arabic}</div></div>`).join('');
+  const mEl=document.getElementById('m-dzk');
+  if(mEl)mEl.innerHTML=DZIKIR.map((d,i)=>`<button class="m-dzk-pill${i===0?' active':''}" onclick="setDzk('m',${i})">${d.latin}</button>`).join('');
 }
-function setDzikir(p,i){tsbState[p].idx=i;tsbState[p].count=0;updateTsbUI(p);const btns=document.querySelectorAll(`#${p}-dzikir-list .dzikir-btn, #${p}-dzikir-list .m-dzikir-btn`);btns.forEach((b,j)=>b.classList.toggle('active',j===i));}
-function tasbihTap(p){tsbState[p].count++;tsbState[p].total++;const el=document.getElementById(`${p}-tsb-count`);if(el){el.classList.add('bump');setTimeout(()=>el.classList.remove('bump'),100);}updateTsbUI(p);const t=DZIKIRLIST[tsbState[p].idx];if(tsbState[p].count===t.target){showNotif(`🎉 ${t.latin} ${t.target}× selesai!`);setTimeout(()=>{tsbState[p].count=0;updateTsbUI(p);},1500);}}
-function tasbihReset(p){tsbState[p].count=0;updateTsbUI(p);}
-function tasbihUndo(p){if(tsbState[p].count>0){tsbState[p].count--;tsbState[p].total=Math.max(0,tsbState[p].total-1);updateTsbUI(p);}}
-function updateTsbUI(p){
-  const s=tsbState[p],d=DZIKIRLIST[s.idx],pct=Math.min(s.count/d.target*100,100);
-  setEl([`${p}-tsb-count`],s.count);setEl([`${p}-tsb-arabic`],d.arabic);setEl([`${p}-tsb-latin`],d.latin);
-  setEl([`${p}-tsb-info`],`${s.count} / ${d.target}`);setEl([`${p}-tsb-total`],s.total);
-  const bar=document.getElementById(`${p}-tsb-bar`);if(bar)bar.style.width=pct+'%';
-}
-renderDzikirList();
+function setDzk(p,i){tsb[p].idx=i;tsb[p].count=0;updTsb(p);const sel=document.querySelectorAll(`#${p==='d'?'d-dzk':'m-dzk'} .tsb-item, #${p==='d'?'d-dzk':'m-dzk'} .m-dzk-pill`);sel.forEach((b,j)=>b.classList.toggle('active',j===i));}
+function tsbTap(p){tsb[p].count++;tsb[p].total++;const el=document.getElementById(`${p}-tc`);if(el){el.classList.add('bump');setTimeout(()=>el.classList.remove('bump'),100);}updTsb(p);const d=DZIKIR[tsb[p].idx];if(tsb[p].count===d.target){showNotif(`🎉 ${d.latin} ${d.target}× selesai!`);setTimeout(()=>{tsb[p].count=0;updTsb(p);},1500);}}
+function tsbReset(p){tsb[p].count=0;updTsb(p);}
+function tsbUndo(p){if(tsb[p].count>0){tsb[p].count--;tsb[p].total=Math.max(0,tsb[p].total-1);updTsb(p);}}
+function updTsb(p){const s=tsb[p],d=DZIKIR[s.idx],pct=Math.min(s.count/d.target*100,100);sel(`${p}-tc`,s.count);sel(`${p}-ta`,d.arabic);sel(`${p}-tl`,d.latin);sel(`${p}-ti`,`${s.count}/${d.target}`);sel(`${p}-tt`,s.total);const b=document.getElementById(`${p}-tb`);if(b)b.style.width=pct+'%';}
+renderTsbList();
 
-// ═══ NOTIF ═══
+// ── NOTIF ──
 let notifT;
 function showNotif(msg){const n=document.getElementById('notif');n.textContent=msg;n.classList.add('show');clearTimeout(notifT);notifT=setTimeout(()=>n.classList.remove('show'),2500);}
 
-// ═══ INIT ═══
-window.addEventListener('load',()=>setTimeout(getLocation,600));
+// ── INIT ──
+window.addEventListener('load',()=>setTimeout(getLocation,500));
 </script>
 </body>
 </html>
